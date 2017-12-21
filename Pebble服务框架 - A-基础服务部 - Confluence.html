@@ -1,0 +1,3001 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192 -->
+<html class="splitter-invoked"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Pebble服务框架 - A-基础服务部 - Confluence</title>
+
+        
+
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://wiki.tuniu.org">
+
+<meta id="atlassian-token" name="atlassian-token" content="4e8518006cc7f0195eff7f9b046270c04297a931">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="BSD">
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.css" media="print">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(1).css" media="all">
+<!--[if gte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=gte+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(2).css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/4c1d05fce5f5855131f346c8ffe667a8/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(3).css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/173607af8949df9ddd658a84f449f662/_/download/contextbatch/css/viewcontent/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(4).css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(5).css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/ef0d65a8ad4df3ceda77986f0b3eab80/_/download/contextbatch/css/atl.general/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(6).css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/com.atlassian.mywork.mywork-confluence-host-plugin_mw-header-anchor.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/doc-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/splitter.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1513838016187">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <div class="field-group">
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="没有匹配" placeholder="用户名、组或邮件"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+        </div>
+        <div class="field-group">
+            <textarea class="textarea" id="note" placeholder="添加一个可选的说明"/>
+        </div>
+        <div class="field-group button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="分享" disabled/>
+            <a class="close-dialog" href="#">取消</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-username">
+    <li data-username="{username}" style="display: none">
+        <img src="{thumbnailLink.href}" title="{title}">
+        <span class="title" title="{title}">{title}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <img src="{icon}" title="{email}">
+        <span class="title" title="{email}">{email}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-group">
+    <li data-group="{title}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}">
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="965bf682e213b2c2b217e94bb6cd2d46">
+            <meta name="ap-request-id" content="5d56e067c5026988">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.acs-side-bar {visibility: hidden;}</style>
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="71350192">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Pebble服务框架">
+            <meta name="ajs-parent-page-title" content="文档">
+            <meta name="ajs-parent-page-id" content="74057582">
+            <meta name="ajs-space-key" content="BSD">
+            <meta name="ajs-space-name" content="A-基础服务部">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-user-display-name" content="蔡青青 caiqingqing (99999)">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/972896400fbc66c55cfa63b2d6ca1c26/_/download/contextbatch/css/comment-editor/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://wiki.tuniu.org">
+            <meta name="ajs-version-number" content="5.1">
+            <meta name="ajs-build-number" content="4215">
+            <meta name="ajs-remote-user" content="caiqingqing">
+            <meta name="ajs-static-resource-url-prefix" content="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="26457280">
+            <meta name="ajs-user-locale" content="zh_CN">
+            <meta name="ajs-enabled-dark-features" content="">
+            <meta name="ajs-atl-token" content="4e8518006cc7f0195eff7f9b046270c04297a931">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-editor.loader.resources" content="&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?media=%28max-width%3A+1270px%29&quot; media=&quot;(max-width: 1270px)&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent/batch.js&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="yyyy-MM-dd">
+    
+    <link rel="shortcut icon" href="http://wiki.tuniu.org/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="http://wiki.tuniu.org/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.tuniu.org/opensearch/osd.action" title="Confluence">
+
+    <!-- include system javascript resources -->
+    <script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.js.下载"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.js(1).下载"></script>
+<script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.js(2).下载"></script>
+<script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.js(3).下载"></script>
+<script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch.js(4).下载"></script>
+<script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/com.atlassian.mywork.mywork-confluence-host-plugin_mw-header-anchor.js.下载"></script>
+
+    
+
+        
+    <!-- end system javascript resources -->
+    
+
+    
+                <link rel="canonical" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192">
+        <link rel="shortlink" href="http://wiki.tuniu.org/x/sLdAB">
+    <meta name="wikilink" content="[BSD:Pebble服务框架]">
+    <meta name="page-version" content="139">
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]--><link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(7).css" media="all"><link type="text/css" rel="stylesheet" href="./Pebble服务框架 - A-基础服务部 - Confluence_files/batch(8).css" media="(max-width: 1270px)">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_">
+            <meta name="ajs-num-attachments" content="14">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-cancel-button-close-text" content="关闭">
+            <meta name="ajs-content-id" content="71350192">
+            <meta name="ajs-action-locale" content="zh_CN">
+            <meta name="ajs-save-drafts" content="true">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-cancel-button-discard-text" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-attachment-source-content-id" content="71350192">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-draft-type" content="page">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-can-attach-files" content="true">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autocomplete" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autoformat" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </head>
+
+<body onload="placeFocus()" id="com-atlassian-confluence" class="theme-documentation  aui-theme-default aui-layout splitter-invoked">
+
+        
+    <div id="full-height-container">
+    <div id="header-precursor">
+        
+                    </div>
+
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class="aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-haspopup="true" tabindex="0"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul class="nav-links"><li class="nav-link"><a href="http://jira.tuniu.org/" class="aui-dropdown2-radio interactive" title="http://jira.tuniu.org/"><span class="nav-link-label">途牛新研发管理系统V1.0</span></a></li><li class="nav-link"><a href="http://wiki.blackfi.sh/" class="aui-dropdown2-radio interactive" title="http://wiki.blackfi.sh"><span class="nav-link-label">wiki-金融</span></a></li></ul></div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="http://wiki.tuniu.org/"><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/confluence-logo.png" alt="Confluence"></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a id="space-directory-link" href="http://wiki.tuniu.org/spacedirectory/view.action" class=" aui-nav-imagelink" title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                    <li>
+            
+    
+        
+<a id="people-directory-link" href="http://wiki.tuniu.org/peopledirectory.action" class=" aui-nav-imagelink" title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                    <li id="browseMenu" class="aui-nav aui-style-blocks" role="menu">
+            
+    
+        <a id="browse-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" aria-haspopup="true" aria-owns="browse-menu-link-content" title="浏览">
+        <span class="browse">浏览</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="browse-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul id="browse-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a id="space-pages-link" href="http://wiki.tuniu.org/pages/listpages.action?key=BSD" class="    " title="浏览A-基础服务部空间的页面 (g , s)">
+        页面
+</a>
+</li>
+                                            <li>
+    
+        
+<a id="space-blogposts-link" href="http://wiki.tuniu.org/pages/viewrecentblogposts.action?key=BSD" class="    " title="浏览A-基础服务部空间的日志">
+        日志
+</a>
+</li>
+                                            <li>
+    
+        
+<a id="space-labels-link" href="http://wiki.tuniu.org/labels/listlabels-heatmap.action?key=BSD" class="    " title="浏览A-基础服务部空间的标签">
+        标签
+</a>
+</li>
+                                            <li>
+    
+        
+<a id="space-advanced-link" href="http://wiki.tuniu.org/spaces/viewspacesummary.action?key=BSD" class="    " title="浏览A-基础服务部空间的附加功能">
+        空间操作
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+        </li>
+                    <li>
+            
+    
+            
+<a id="create-page-button" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="aui-button aui-style aui-button-primary aui-nav-imagelink" title="Create Content (c)">
+            <span>Create</span>
+    </a>
+        </li>
+        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                <li>
+        
+    
+            
+<a id="doctheme-anchor" class=" aui-nav-imagelink" title=""><div id="splitter-button" class="" title="Show or hide sidebar ([)"></div></a>
+    </li>
+        <li>
+<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="http://wiki.tuniu.org/dosearchsite.action" method="get">
+    <fieldset>
+                        <label for="quick-search-query" class="assistive">快速搜索</label>
+        <input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="queryString" title="快速搜索 (/或 g , g)" placeholder="搜索">
+        <input id="quick-search-submit" class="quick-search-submit" type="submit" value="搜索">
+
+        <div class="aui-dd-parent quick-nav-drop-down"></div>
+    </fieldset>
+    <div class="hidden parameters">
+                    <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                </div>
+</form>
+</li>
+    <li>    
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" aria-haspopup="true" aria-owns="help-menu-link-content" title="帮助">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">帮助</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a id="confluence-help-link" href="http://docs.atlassian.com/confluence/docs-51/Getting+Help+And+Support" class="interactive" title="访问Confluence文档站点" target="_blank">
+        在线帮助
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="keyboard-shortcuts-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="interactive" title="View available keyboard shortcuts (?)">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+        
+<a id="feed-builder-link" href="http://wiki.tuniu.org/dashboard/configurerssfeed.action" class="interactive" title="创建个性化的 RSS源。">
+        RSS源构建器
+</a>
+</li>
+                                            <li>
+    
+        
+<a id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-51/whatsnew/iframe?od=false&amp;a=false" class="interactive" title="">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="gadget-directory-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="user-item administration-link  interactive" title="浏览小工具">
+        可用的小工具
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    </li>
+    <li>    
+    </li>
+                <li>
+        
+    
+            
+<a id="notifications-anchor" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="mw-anchor aui-nav-imagelink unread" title="New Notifications: 1 (g , n)"><div class="badge-i aui-icon aui-icon-small"><span class="badge-w"><span class="badge aui-button-primary">1</span></span></div></a>
+    </li>
+        <li>                                    
+        <a id="user-menu-link" class="aui-dropdown2-trigger " aria-haspopup="true" aria-owns="user-menu-link-content" data-username="caiqingqing" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" title="蔡青青 caiqingqing (99999)">
+                    <div class="aui-avatar aui-avatar-small">
+                <div class="aui-avatar-inner">
+                    <img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/default.png">
+                </div>
+            </div>
+            <span class="aui-icon-dropdown"></span>
+        </a>
+        <nav id="user-menu-link-content" class="aui-dropdown2 aui-style-default">
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-preferences" class="aui-list-truncate section-user-preferences first">
+                                                    <li>
+    
+        
+<a id="view-user-history-link" href="http://wiki.tuniu.org/users/viewuserhistory.action" class="   user-item user-history popup-link " title=" (g , r)">
+        最近浏览
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-content" class="aui-list-truncate section-user-content">
+                                                    <li>
+    
+        
+<a id="view-user-profile-link" href="http://wiki.tuniu.org/users/viewmyprofile.action" class="   user-item user-profile " title="">
+        用户信息
+</a>
+</li>
+                                                    <li>
+    
+        
+<a id="user-settings-link" href="http://wiki.tuniu.org/users/viewmysettings.action" class="   user-item " title="">
+        设置
+</a>
+</li>
+                                                    <li>
+    
+        
+<a href="http://wiki.tuniu.org/users/viewfollow.action?username=caiqingqing" class="   follow-link " title="">
+        社交
+</a>
+</li>
+                                                    <li>
+    
+        
+<a id="user-favourites-link" href="http://wiki.tuniu.org/users/viewmyfavourites.action" class="   user-item " title="">
+        收藏
+</a>
+</li>
+                                                    <li>
+    
+        
+<a id="user-watches-link" href="http://wiki.tuniu.org/users/viewnotifications.action" class="   user-item " title="">
+        关注
+</a>
+</li>
+                                                    <li>
+    
+        
+<a id="user-drafts-link" href="http://wiki.tuniu.org/users/viewmydrafts.action" class="   user-item " title="">
+        草稿
+</a>
+</li>
+                                                    <li>
+    
+        
+<a id="upm-requests-link" href="http://wiki.tuniu.org/plugins/servlet/upm/requests?source=header_user" class="    " title="">
+        Atlassian Marketplace
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-operations" class="aui-list-truncate section-user-operations">
+                                                    <li>
+    
+        
+<a id="logout-link" href="http://wiki.tuniu.org/logout.action" class="   user-item logout-link " title="">
+        注销
+</a>
+</li>
+                                            </ul>
+                </div>
+                    </nav>
+                    </li>
+</ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    <div id="splitter" style="position: relative; height: 1045.88px;">
+    <div id="splitter-sidebar" style="position: absolute; left: 0px; width: 300px; height: 1046px;">
+        
+
+                    
+    
+
+
+<div class="plugin_pagetree">
+
+                        <div id="pagetreesearch">
+            <form method="POST" class="aui" action="http://wiki.tuniu.org/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="49207669">
+                                <input type="hidden" name="spaceKey" value="BSD">
+                <input type="text" class="text medium-field" size="20" name="queryString">
+                <input type="submit" class="aui-button" value="Search">
+            </form>
+        </div>
+            
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children" id="children49207669-0">
+<ul class="plugin_pagetree_children_list" id="child_ul49207669-0">
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus61103419-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan61103419-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=61103419">部门规范</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children61103419-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus71062377-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71062377-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71062377">研发组</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71062377-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus71065994-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71065994-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71065994">汇报</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71065994-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71064180-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71064180">分享</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71064180-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus71067158-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71067158-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067158">产品</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71067158-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul71067158-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus71067878-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71067878-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067878">JAVA开发框架-Pebble(铺路石)</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71067878-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul71067878-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus74057582-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan74057582-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=74057582">文档</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children74057582-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul74057582-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71350192-0" style="font-weight: bold;">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192">Pebble服务框架</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71350192-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus77138501-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan77138501-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=77138501">Pebble IDL管理设计</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children77138501-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan77139541-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=77139541">Pebble Log 分析设计</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children77139541-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus78721646-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan78721646-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=78721646">Pebble Mock Server 设计</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children78721646-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus75339518-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan75339518-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=75339518">讨论记录</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children75339518-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan74057710-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=74057710">迭代进展</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children74057710-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus76038773-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76038773-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=76038773">发布报告</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76038773-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76053458-0">                        <a href="http://wiki.tuniu.org/display/BSD/Git+Flow">Git Flow</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76053458-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76418910-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=76418910">环境列表</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76418910-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus76435612-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76435612-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=76435612">使用手册</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76435612-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76781922-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=76781922">部署详情</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76781922-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus76426779-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan76426779-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=76426779">消息中间件平台 - Tubing（通道）</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children76426779-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71067886-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067886">短息平台</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71067886-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus78727073-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan78727073-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=78727073">途牛分布式调用分析系统X-RAY</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children78727073-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan71067882-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067882">通用搜索平台</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children71067882-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus70758631-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan70758631-0">                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=70758631">临时</a>
+        </span>
+            </div>
+
+
+
+
+        <div id="children70758631-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+    </ul>
+</div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="71350192">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="49207669">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="BSD">
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D71350192">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="74057582">
+                                    <input type="hidden" name="ancestorId" value="71067878">
+                                    <input type="hidden" name="ancestorId" value="71067158">
+                                    <input type="hidden" name="ancestorId" value="49207669">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div><div class="vsplitbar" unselectable="on" style="z-index: 4; position: absolute; user-select: none; cursor: ew-resize; left: 300px; height: 1046px;"><a href="javascript:void(0)" accesskey="L" tabindex="0" title="vsplitbar"></a></div>
+    <div id="splitter-content" style="position: absolute; left: 305px; width: 2095px; height: 1046px;">
+
+                    <script type="text/javascript" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/doc-theme.js.下载"></script>
+    
+                        
+            
+<div id="main" class="aui-page-panel">
+    <div id="main-header">
+        
+        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                            <li class="ajs-button normal">
+
+    
+        
+    
+    <a id="editPageLink" href="http://wiki.tuniu.org/pages/editpage.action?pageId=71350192" class="edit full-load" accesskey="e" title="编辑 (e)">
+                <span><u>E</u>编辑</span>    </a>
+</li>
+                <li class="ajs-button normal">
+
+    
+            
+    
+    <a id="shareContentLink" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="share" title="通过发送电子邮件给其他人共享此内容 (s)">
+                <span>分享</span>    </a>
+</li>
+                        
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden ajs-menu-title aui-dropdown2-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation"><span><span>添加</span></span></a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul id="add-menu-space" class="section-space first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="createPageLink" href="http://wiki.tuniu.org/pages/createpage.action?spaceKey=BSD&amp;fromPageId=71350192" class="add-page" accesskey="p" title="添加页面">
+                <span>页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="createPageLinkTemplate" href="http://wiki.tuniu.org/pages/createpage-choosetemplate.action?spaceKey=BSD&amp;newSpaceKey=BSD&amp;fromPageId=71350192" class="add-page-template" accesskey="p" title="使用模板添加页面">
+                <span>由模板产生的页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="createBlogpostLink" href="http://wiki.tuniu.org/pages/createblogpost.action?spaceKey=BSD" class="add-news" title="添加日志 (b)">
+                <span>日志</span>    </a>
+</li>
+                                </ul>
+                            <ul id="add-menu-page" class="section-page aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="add-comment-menu-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;showComments=true&amp;showCommentArea=true#addcomment" class="add-comment" title="添加评论">
+                <span>评论</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="add-attachment-link" href="http://wiki.tuniu.org/pages/viewpageattachments.action?pageId=71350192" class="add-attachment" accesskey="t" title="添加一个附件">
+                <span>附件</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>工具</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default most-right-menu-item">
+                            <ul id="action-menu-primary" class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="view-attachments-link" href="http://wiki.tuniu.org/pages/viewpageattachments.action?pageId=71350192" class="action-view-attachments" accesskey="t" title="查看附件 (t)">
+                <span><u>t</u>附件 (14)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-view-history-link" href="http://wiki.tuniu.org/pages/viewpreviousversions.action?pageId=71350192" class="action-view-history" title="">
+                <span>页面历史</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-page-permissions-link" href="http://wiki.tuniu.org/pages/viewinfo.action?pageId=71350192" class="action-page-permissions" title="编辑限制">
+                <span>限制</span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-marker" class="section-marker aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="page-favourite" href="http://wiki.tuniu.org/labels/addfavourite.action?entityId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931" class="action-page-favourite" title="">
+                <span>收藏夹</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="page-watch" href="http://wiki.tuniu.org/pages/addpagenotification.action?pageId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931" class="action-page-watching" title="">
+                <span>关注</span>    </a>
+</li>
+                                        <li class="assistive">
+
+    
+        
+    
+    <a id="page-unwatch" href="http://wiki.tuniu.org/pages/removepagenotification.action?pageId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931" class="action-page-watching selected ie-page-watching-selected inactive" title="">
+                <span>停止关注</span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-secondary" class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="view-page-info-link" href="http://wiki.tuniu.org/pages/viewinfo.action?pageId=71350192" class="action-view-info" title="">
+                <span>页面信息</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="link-to-page-link" href="http://wiki.tuniu.org/pages/viewinfo.action?pageId=71350192" class="" title="链接至本页面 (k)">
+                <span>链接到此页面…</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="view-in-hierarchy-link" href="http://wiki.tuniu.org/pages/listpages-dirview.action?key=BSD&amp;openId=71350192#selectedPageInHierarchy" class="" title="">
+                <span>以层级方式查看</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-view-source-link" href="http://wiki.tuniu.org/plugins/viewsource/viewpagesrc.action?pageId=71350192" class="action-view-source popup-link" title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-export-pdf-link" href="http://wiki.tuniu.org/spaces/flyingpdf/pdfpageexport.action?pageId=71350192" class="" title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-export-word-link" href="http://wiki.tuniu.org/exportword?pageId=71350192" class="action-export-word" title="">
+                <span>导出为Word</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="import-word-doc" href="http://wiki.tuniu.org/pages/worddav/uploadimport.action?pageId=71350192" class="" title="">
+                <span>Import Word Document</span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-modify" class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a id="action-copy-page-link" href="http://wiki.tuniu.org/pages/copypage.action?idOfPageToCopy=71350192&amp;spaceKey=BSD" class="action-copy" title="">
+                <span>复制</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a id="action-move-page-dialog-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192" class="action-move" title="">
+                <span>移动</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+        
+                <h1 id="title-heading" class="pagetitle with-breadcrumbs">
+                            <div class="space-logo " data-key="BSD" data-name="A-基础服务部" data-entity-type="confluence.space">
+            <a><img class="logo global" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/default-space-logo-48.png" alt=""></a>
+        </div>            
+                            <div id="breadcrumb-section">
+                    
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/display/BSD">A-基础服务部</a></span>
+                                                </li><li id="ellipsis" title="显示全部导航项"><span><strong>…</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=49207669">A-基础服务部 首页</a></span>
+                                        
+                
+        </li><li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067158">产品</a></span>
+                                        
+                
+        </li><li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067878">JAVA开发框架-Pebble(铺路石)</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=74057582">文档</a></span>
+                </li></ol>
+
+
+                </div>
+            
+            <span id="title-text" class="with-breadcrumbs">
+                                        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192">Pebble服务框架</a>
+                            </span>
+        </h1>
+    </div>
+
+    
+
+    
+    
+    
+    
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+    
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                按照空间和标题指定这个页面的新的父页面和子页面
+            </div>
+        </div>
+    </div>
+        <form class="aui" onsubmit="return false;">
+	        <fieldset>
+	                
+
+    <legend class="assistive"><span>变更父页面至已知页面</span></legend>
+	            <div class="field-group">
+	                <label for="new-space">新空间:</label>
+	                <div class="value new-space-value">
+	                    <input id="new-space-key" name="new-space-key" type="hidden" value="BSD">
+	                    	                        <span class="space-input">
+	                            <input id="new-space" name="new-space" value="A-基础服务部" disabled="disabled" class="text long-field">
+	                        </span>
+                            <div class="description warning">由于你没有该空间的页面删除权限，因此无法将页面移动到其他空间中。</div>
+	                    	                    <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	            <div class="field-group">
+	                <label for="new-parent-page">新的父页面:</label>
+	                <div class="value new-parent-page-value">
+	                    <span class="page-input">
+	                        <input id="new-parent-page" name="new-parent-page" value="文档" class="text long-field">
+	                    </span>
+                        <div class="description">输入页面标题来查看建议的页面列表。</div>
+	                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	        </fieldset>
+        </form>
+    <div class="location-info">
+        <div class="row">
+            <label>当前位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>新位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                为这个页面及其子页面选择新的父页面
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+	        <form class="aui" onsubmit="return false;">
+	            <fieldset>
+	                    
+
+    <legend class="assistive"><span>搜索父页面</span></legend>
+	                    
+
+    <label  for="move-page-search-query" class="assistive">搜索关键字</label>
+	                <input class="search-query text" id="move-page-search-query">
+	                    
+
+    <label  for="move-page-search-space" class="assistive">在空间中搜索</label>
+	                	                    <select id="move-page-search-space" class="search-space select" disabled="disabled">
+	                        <option value="BSD" selected="selected">A-基础服务部</option>
+	                    </select>
+	                	                <input type="button" value="搜索" class="button submit">
+	                	                    <div class="description warning">由于你没有该空间的页面删除权限，因此无法将页面移动到其他空间中。</div>
+	                	            </fieldset>
+	        </form>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">页面标题</th>
+                <th class="search-result-space">空间</th>
+                <th class="search-result-date">更新于</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+                <div id="page-permissions-error-div" class="aui-message warning shadowed closeable hidden">
+            <p class="title"/>
+            <span class="aui-icon icon-warning"></span>
+            <span class="aui-icon icon-close" tabindex="0" role="button"></span>
+        </div>
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div class="radio">
+                <input id="restrictViewRadio" class="radio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">页面浏览限制</label>
+                <input id="restrictEditRadio" class="radio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">页面编辑限制</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">至:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="aui-button normal">
+                        <a href="#">
+                            <img src="/images/icons/profilepics/default.png" alt="我"/>
+                            我
+                        </a>
+                        <span class="remote-user-name hidden">caiqingqing</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="aui-button">
+                    
+
+
+    
+    
+
+
+
+
+
+
+<a id='userpicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/openuserpicker.action?key=BSD&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/user_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose users" />
+						    人员...
+	        </a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="aui-button">
+                    
+
+
+    
+    
+
+ 
+
+
+
+
+<a id='grouppicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=BSD&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/group_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" />
+						    组...
+	        </a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input id="page-permissions-names-input" class="autocomplete-user-or-group text" type="text" name="permissionNames"
+                    placeholder="输入用户或组名:"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <button class="aui-button" id="add-typed-names">限制</button>
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete autocomplete-user-or-group-target"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small aui-iconfont-view"></span>
+                        <span>当前页面没有浏览限制</span>
+                    </td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small edit-icon"></span>
+                        <span>当前页面没有编辑限制</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">显示/隐藏</a>
+                <a id="toggle-inherited-permissions" title="点击查看继承权限">此页面继承了父级页面权限，只有对父级页面拥有查看权限的用户才可以查看此页面。</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="74057582">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#page-metadata-end" class="assistive">转至元数据结尾</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+
+    
+            
+    
+    <a id="content-metadata-page-restrictions" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="page-metadata-icon page-restrictions hidden" title="此页面应用了权限限制，点击小锁图标查看或编辑限制。">
+                <span>应用页面限制</span>    </a>
+</li>
+                            <li class="page-metadata-item noprint">
+
+    
+        
+    
+    <a id="content-metadata-attachments" href="http://wiki.tuniu.org/pages/viewpageattachments.action?pageId=71350192&amp;metadataLink=true" class="page-metadata-icon action-view-attachments" accesskey="t" title="附件：14">
+                <span><span class="page-metadata-attachments-text">附件：</span><span class="page-metadata-attachments-count">14</span></span>    </a>
+</li>
+                        <li class="page-metadata-modification-info">
+                                    由<a href="http://wiki.tuniu.org/display/~liurui" class="url fn confluence-userlink userlink-0" data-username="liurui" title="" data-user-hover-bound="true">刘锐 liurui (61549)</a>添加，由<a href="http://wiki.tuniu.org/display/~liurui" class="url fn confluence-userlink userlink-0" data-username="liurui" title="" data-user-hover-bound="true">刘锐 liurui (61549)</a>最后更新于2017-11-29
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="http://wiki.tuniu.org/pages/diffpages.action?pageId=71350192&amp;originalId=81044236">查看更改</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#page-metadata-start" class="assistive">转至元数据起始</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+                           <h3>前言</h3><p>Pebble服务框架是开发框架中的核心功能，目标是规范设计、开发、测试的流程、手段、工具，给研发人员提供一整套的解决方案，聚合技术平台能力，提高研发效率，降低各业务项目的技术侧人力投入。</p><h3>功能</h3>
+<ul>
+  <li>服务定义：研发在设计初期确定系统间的交互接口，使用统一的IDL语法来编写，规范描述方式。使用统一的工具完成IDL到具体语言的代码转换。Java侧使用maven来管理接口定义的jar包版本；收口了管理，同时jar包就是文档，从根本上解决了文档不能及时更新的问题。服务的提供方实现服务接口，并由框架来完成自动服务暴露和注册。服务消费方通过引入服务jar的方式来直接使用服务的api。框架提供多种开源框架的support包，并开放简单、丰富的配置项。</li>
+  <li>服务治理：服务自动注册发现，并提供丰富的服务治理手段。server端服务并发控制、服务限流。client端负载均衡、熔断、服务降级等。提供客户端配置项和web控制台两种干预方式。服务的启停、注册、暴露等的时机保证服务的稳定可靠。</li>
+  <li>权限管理：服务实例的归属关联明确的系统标示（系统码+模块码），负责人和owner明确。权限管控不独立维护，依赖tardis统一管理。</li>
+  <li>服务监控：分为调用方视角和服务方视角。调用端收集实际发生的调用log并做收集、分析、呈现。服务方度量提供的服务的实际情况、收集jvm的基本情况，并近实时呈现到web控制台。</li>
+  <li>测试支撑：mock测试桩维护，自动化测试过程。从根本上解决测试环节中环境繁杂，数据维护效率低下等问题。为持续集成提供可能性。</li>
+  <li>扩展：框架通过动态代理、抽象封装对研发屏蔽了服务监听、序列化/反序列化、协议等技术细节。当然如果需要，研发人员可以通过配置甚至开发扩展来DIY。</li>
+</ul><h3>功能详述</h3><h4>服务开发流程</h4><p>需求确认之后，涉及的各研发团队讨论接口定义，并将最终的接口定义按照IDL给出。框架提供工具将IDL直接转为java等语言的code，使用框架提供的IDL管理工具可以直接生成jar并可以直接push到maven仓库，给出maven坐标。开发阶段使用snapshot，可以多次修改，进入联试阶段则需要使用public版本，public版本必须向前兼容。通过这个流程的管理，研发不需要再多余的维护word、wiki这样的接口文档，以IDL为准，避免文档的维护成本。同时，使用maven来管理版本，可以追溯历史版本。</p><h4>服务治理</h4><p>服务框架提供丰富的服务治理手段，研发可以通过配置和web-console来干预。调用方client具备熔断，负载均衡，路由等功能。提供方具备限流、鉴权、屏蔽调用方、权重等功能。<br>具体意义：<br>熔断：调用方根据实际调用结果度量，出错几次或相应时间超过阈值几次，本地禁用该链路一段时间，尝试可用后再加入负载。<br>快速失败：针对一些服务不再发生实际调用，直接返回自行定义的数据或者异常。<br>限流：限制提供方的并发上限，可以按照接口维度、调用方维度分配。<br>度量：服务调用的流量、速率、响应时延。</p><h4>服务监控</h4><p>提供各个维度的监控信息，实际的数据来源：既成事实的调用log（从调用方收集），提供方服务度量log（从提供方收集）。<br>最终提供出折线图和饼图：流量图、时延图、失败率图、异常分布饼图、调用系统分布饼图等。 </p><h4>测试过程</h4><p>目前测试环境最大的问题就是联试环境和联试数据的维护。上下游系统测试环境数据的构造往往占据了测试过程巨大多数时间。框架提供服务框架内的mock装维护功能，测试人员可以在系统上维护个个服务接口的mock装数据，并可以设置一定的回放规则。通过这个环境目标从根本上解决掉自测环节数据依赖的问题，为持续集成提供可能。</p><h3>设计</h3><h4>逻辑架构</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-arc.jpg" alt="逻辑架构"></p><h4>逻辑分层</h4><p>&nbsp;<img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-framwork.jpg" alt="逻辑分层"></p><h4>暴露服务时序</h4><p>&nbsp;<img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-provider-start.png" alt="暴露服务时序"></p><h4>引用服务时序</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-reference-get.png" alt="引用服务时序"></p><h4>客服端调用时序</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-invoke.png" alt="客户端调用时序"><br>&nbsp;</p><h4>服务端响应时序</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/provider-invoke-chain.png" alt="服务端响应时序"></p><h4>实现分层和扩展</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-layer.jpg" alt="实现分层和扩展"></p><h4>异常发生和处理分层</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/pebble-exception-handle.png" alt="异常发生和处理分层"><br> <img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/invoker-exception-handle.png" alt="invoker异常处理抽象"><br> <img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/client-exception-handle.png" alt="invoker异常处理抽象"><br>&nbsp;</p><h4>服务治理功能规划</h4>
+<table class="tablesorter">
+  
+  <tbody>
+    <tr>
+      <td>服务</td>
+      <td>禁用/允许</td>
+      <td>调用方抛出服务不可用异常</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务</td>
+      <td>实例warm up</td>
+      <td>提供方实例启动后多长时间后才变为正常权重</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failfast</td>
+      <td>调用失败直接抛出异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failover</td>
+      <td>调用失败可以重试，重试次数，重试间隔0</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failsafe</td>
+      <td>调用忽略异常，不抛出异常，如果有异常返回的结果为null</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>broadcast</td>
+      <td>向所有服务提供者广播请求</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failover plus</td>
+      <td>重试时间增长</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>map reduce</td>
+      <td>将请求的参数分解，分别分发给不同提供者，再将结果合并</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>白名单</td>
+      <td>白名单优先，配置白名单IP正则</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>黑名单</td>
+      <td>黑名单内的提供者直接排除</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>路由ip正则</td>
+      <td>场景比如：在线A/B</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>tag</td>
+      <td>消费方根据实例自身的tag找到具备相同tag的提供方</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>随机</td>
+      <td>按照权重随机选取</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>轮询</td>
+      <td>按照权重轮询选取</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>最小调用</td>
+      <td>根据调用方实际调用metrics信息来选取count最小的调用</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>最小时间</td>
+      <td>根据调用方实际调用metrics信息来选取时延最小的调用</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>粘滞</td>
+      <td>首次随机，接下来的请求会都分发到首次的提供方</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>hash</td>
+      <td>一致性hash、客户端可扩展</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>机器状态</td>
+      <td>根据提供者所在机器状态来选取合适</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-限流</td>
+      <td>work线程池</td>
+      <td>根据iface可以拆可以合并；最大并发设置；</td>
+      <td>多选</td>
+      <td>提供方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-限流</td>
+      <td>并发分配</td>
+      <td>根据调用者系统按照比率分配并发，超过则拒绝，返回异常；</td>
+      <td>多选</td>
+      <td>提供方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务提供者实例</td>
+      <td>禁用/允许</td>
+      <td>调用方过滤，如果都禁用则抛出无可用提供者异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务提供者实例</td>
+      <td>权重倍权/半权</td>
+      <td>默认提供方权重是16，</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务消费者实例</td>
+      <td>禁用/允许</td>
+      <td>调用方抛出消费者被禁用异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+  </tbody>
+<thead><tr class="sortableHeader">
+      <th data-column="0" class="sortableHeader"><div class="tablesorter-header-inner">归属</div></th>
+      <th data-column="1" class="sortableHeader"><div class="tablesorter-header-inner">功能</div></th>
+      <th data-column="2" class="sortableHeader"><div class="tablesorter-header-inner">说明</div></th>
+      <th data-column="3" class="sortableHeader"><div class="tablesorter-header-inner">可选</div></th>
+      <th data-column="4" class="sortableHeader"><div class="tablesorter-header-inner">何处生效</div></th>
+      <th data-column="5" class="sortableHeader"><div class="tablesorter-header-inner">何处控制</div></th>
+      <th data-column="6" class="sortableHeader"><div class="tablesorter-header-inner">版本</div></th>
+      <th data-column="7" class="sortableHeader"><div class="tablesorter-header-inner">计划</div></th>
+    </tr></thead><thead>
+    
+  </thead></table><p>&nbsp;</p><h4>zk节点设计</h4><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/Pebble-zk-Root.jpg" alt="服务之列zk节点设计"></p><h5>客户端watcher</h5>
+<ol>
+  <li>服务提供者pool子节点变化</li>
+  <li>服务提供配置common节点data变化</li>
+  <li>服务提供者实例配置节点data变化</li>
+  <li>服务提供路由规则节点data变化</li>
+  <li>服务提供限流规则节点data变化</li>
+  <li>服务消费者自己的节点data变化<br>&nbsp;</li>
+</ol><h5>服务配置生效规则</h5>
+<table class="tablesorter">
+  
+  <tbody>
+    <tr>
+      <td>common</td>
+      <td>禁用/允许</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>实例warm up</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>60秒</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>cluster</td>
+      <td>调用方</td>
+      <td>客户端设置 &gt; 服务端治理</td>
+      <td>failfast</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>loadbalance</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>random</td>
+    </tr>
+    <tr>
+      <td>router</td>
+      <td>routeConfig</td>
+      <td>调用方</td>
+      <td>客户端治理 &gt; 客户端设置 &gt; 服务端治理</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>rateLimit</td>
+      <td>throttler</td>
+      <td>提供方</td>
+      <td>服务端治理</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>provider enable</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>权重倍权/半权</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>consumer enable</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>timeout</td>
+      <td>调用方</td>
+      <td>客户端设置</td>
+      <td>2秒</td>
+    </tr>
+  </tbody>
+<thead><tr class="sortableHeader">
+      <th data-column="0" class="sortableHeader"><div class="tablesorter-header-inner">归属</div></th>
+      <th data-column="1" class="sortableHeader"><div class="tablesorter-header-inner">功能</div></th>
+      <th data-column="2" class="sortableHeader"><div class="tablesorter-header-inner">何处生效</div></th>
+      <th data-column="3" class="sortableHeader"><div class="tablesorter-header-inner">覆盖关系</div></th>
+      <th data-column="4" class="sortableHeader"><div class="tablesorter-header-inner">默认值</div></th>
+    </tr></thead><thead>
+    
+  </thead></table><p>&nbsp;</p><h5>这样设计的优势</h5>
+<ol>
+  <li>客户端的watcher数目不会随着服务提供者变化而增加</li>
+  <li>zk集群整体的watcher的个数为：按照Iface求和{每个iface下服务消费者数*6}</li>
+  <li>每个节点的数据量小，再加上一些硬性控制可以保证zk集群的稳定性</li>
+</ol><h4>监控</h4>
+<ul>
+  <li>服务框架会收集消费方调用log，收集后的log提供短期查询（暂定3天）和长期压缩归档。提供分析服务对数据进行近实时的分析，并提供告警和报告等功能；</li>
+  <li>服务方access log提供本地落盘功能；</li>
+  <li>服务提供方metrics上报到falcon agent，默认关闭，可自行开关；</li>
+</ul><h5>消费方调用log收集</h5><p><img src="./Pebble服务框架 - A-基础服务部 - Confluence_files/Pebble-Consumer-log.jpg" alt="消费方调用log收集设计"><br>图中红色部分为Pebble框架开发的部分，蓝色为组件依赖；<br>log service provider 提供一个收集log的pebble服务，该服务内部将消息写入MQ中间件。序列化先采用thirft，后续可以优化为其他压缩比高的序列化方式。<br>消费者pebble客户端中先在有界内存队列缓存调用log，由消费线程调用log收集服务来推送到远端。</p><h4>启停graceful设计</h4>
+<ul>
+  <li>使用spring作为容器，继承ApplicationListener实现onApplicationEvent方法：</li>
+</ul>
+<ol>
+  <li>ContextRefreshedEvent：初始化服务提供者(初始化本地提供者配置–&gt;本地暴露服务–&gt;注册)；</li>
+  <li>ContextClosedEvent：注销消费引用，停止暴露服务(注销服务注册–&gt;等待worker线程处理完毕–&gt;关闭服务端口暴露)</li>
+</ol>
+<ul>
+  <li><p>不使用spring容器，需要手动调用startup，内部执行流程同上；startup中还会通过addShutdownHook添加回调操作，当jvm收到退出信号则会调用该回调，去做注销的事情，内部执行同上；</p>
+  <blockquote>注意：强烈要求运维停止jvm时使用SIGTERM 15信号(kill命令默认信号)，而不是暴力的SIGKILL 9；尝试多次15后，仍不能停止再使用9(tomcat容器，建议使用它自带的shutdown脚本)。如果直接kill -9则zk上的节点消除需要等一个zk服务端配置的client心跳的超时，导致这个时段内的调用会有refuse异常。
+  </blockquote></li>
+</ul><h3>写在最后</h3><h4>为什么已经有了TSP,还需要做pebble服务？</h4>
+<ol>
+  <li>TSP并没有做服务端流量的入口，依附spring框架的mapping和web容器的服务能力，做深层次的治理难度大；</li>
+  <li>TSP没有做rpc，不能深入管理接口的定义，序列化和协议没法更改；</li>
+  <li>TSP服务落在方法上，服务总数是爆炸的，并且不能指导业务的抽象；</li>
+  <li>TSP设计时并没有考虑到测试的部分，导致自动化集成难度大；</li>
+  <li>TSP的异常设计欠缺，log不完善，为定位问题提供的帮助有限；</li>
+  <li>TSP的扩展性欠缺；</li>
+</ol><h4>为什么有了dubbo，还需要做pebble服务？</h4>
+<ol>
+  <li>dubbo整体偏重，抽象的太细，而目前途牛内部关心到potocol层已经满足需求；</li>
+  <li>dubbo目前没有支撑原生的thrift，我们设计倾向对接原生协议，这样框架可以对接更多支持原生的其他框架，节省开发时间，比如监控，比如APM；</li>
+  <li>希望从设计到实现都把握在途牛自有团队手中，方便问题调查和维护,dubbo早就停止维护，dubboX代码很不堪，更新极少；</li>
+  <li>治理和管理上希望更切合途牛系统现状；</li>
+</ol><h4>分享ppt下载<a href="http://wiki.tuniu.org/download/attachments/71350192/Pebble%E5%88%86%E4%BA%AB-v3.pptx?api=v2">点击下载</a></h4>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/71350192"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+
+<div id="likes-and-labels-container"><div id="likes-section"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192" class="like-button">赞同</a><span class="like-summary"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192" class="likes" data-content-id="71350192">8个人</a>表示赞同</span></div><div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="71350192" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right  has-pen">
+            <li class="no-labels-message">
+            无标签
+        </li>
+                <li class="labels-edit-container">
+            <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="show-labels-editor editor-icon" title="编辑标签 (l)">
+                <span class="icon icon-edit">编辑标签</span>
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</div></div></div>
+
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+            <div class="section-header ">
+            <h2 id="comments-section-title" class="section-title">
+                <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="comments-show-hide comments-showing" name="comments">
+                                            评论
+                                    </a>
+            </h2>
+            <a title="隐藏/显示评论" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="comments-show-hide icon comments-showing icon-section-opened">
+                隐藏/显示评论
+            </a>
+        </div>
+    
+    
+    
+                            <ol class="comment-threads top-level " id="page-comments">
+                        <li id="comment-thread-81043918" class="comment-thread">
+                                <div class="comment  " id="comment-81043918">
+                <p class="comment-user-logo">
+                    <a class="userLogoLink userlink-1" data-username="huyinmiao" href="http://wiki.tuniu.org/display/~huyinmiao" title="" data-user-hover-bound="true">
+               <img class="userLogo logo" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/default(1).png" alt="用户图标: huyinmiao" title="">
+           </a>                </p>
+                <div class="comment-header">
+                    <h4 class="author"><a href="http://wiki.tuniu.org/display/~huyinmiao" class="url fn confluence-userlink userlink-1" data-username="huyinmiao" title="" data-user-hover-bound="true">胡银苗 huyinmiao (99999)</a> 发表：</h4>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>是不是写错了B<span style="background-color: transparent;">rodcastClusterInvoker？B<span>roadcastClusterInvoker</span></span></p>
+                    </div>
+                    <div class="comment-actions">
+                                                      <ul class="comment-actions-secondary">
+                                                                      <li class="first comment-permalink"><a title="指向此评论的永久链接" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918" id="comment-permalink-81043918"><span>永久链接</span></a></li>
+            </ul>
+                                <ul class="comment-actions-primary">
+                                                                      <li class="first action-reply-comment"><a href="http://wiki.tuniu.org/pages/replycomment.action?commentId=81043918&amp;pageId=71350192" id="reply-comment-81043918"><span>回复</span></a></li>
+                                                                      <li class="comment-action-like"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192" class="like-button">赞同</a><span class="like-summary"><span class="comment-action-separator">•</span><span class="small-like-icon"></span><a href="http://wiki.tuniu.org/display/~liurui" class="confluence-userlink userlink-0" data-username="liurui" title="" data-user-hover-bound="true">刘锐 liurui (61549)</a> 表示赞同</span></li><li class=" comment-date"><a title="2017-11-28 19:12" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"><span>2017-11-28</span></a></li>
+            </ul>
+                      </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/81043918"/>
+</rdf:RDF>
+-->
+
+                    
+                                    <ol class="comment-threads">
+                                        <li id="comment-thread-81044255" class="comment-thread">
+                                <div class="comment   odd" id="comment-81044255">
+                <p class="comment-user-logo">
+                    <a class="userLogoLink userlink-0" data-username="liurui" href="http://wiki.tuniu.org/display/~liurui" title="" data-user-hover-bound="true">
+               <img class="userLogo logo" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/Avatar-24.png" alt="用户图标: liurui" title="">
+           </a>                </p>
+                <div class="comment-header">
+                    <h4 class="author"><a href="http://wiki.tuniu.org/display/~liurui" class="url fn confluence-userlink userlink-0" data-username="liurui" title="" data-user-hover-bound="true">刘锐 liurui (61549)</a> 发表：</h4>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>thx,已经修复</p>
+                    </div>
+                    <div class="comment-actions">
+                                                      <ul class="comment-actions-secondary">
+                                                                      <li class="first comment-permalink"><a title="指向此评论的永久链接" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255" id="comment-permalink-81044255"><span>永久链接</span></a></li>
+            </ul>
+                                <ul class="comment-actions-primary">
+                                                                      <li class="first action-reply-comment"><a href="http://wiki.tuniu.org/pages/replycomment.action?commentId=81044255&amp;pageId=71350192" id="reply-comment-81044255"><span>回复</span></a></li>
+                                                                      <li class="comment-action-like"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192" class="like-button">赞同</a><span class="like-summary"></span></li><li class=" comment-date"><a title="2017-11-29 10:58" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"><span>2017-11-29</span></a></li>
+            </ul>
+                      </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/81044255"/>
+</rdf:RDF>
+-->
+
+                    
+                                </li>
+                                </ol>
+                        </li>
+                </ol>
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink userlink-2" data-username="caiqingqing" href="http://wiki.tuniu.org/users/editmyprofilepicture.action" title="" data-user-hover-bound="true"><img class="userLogo logo defaultLogo" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/add_profile_pic.png" alt="用户图标: 添加头像" title=""></a></p><div class="quick-comment-vertical-spacer"></div><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"><p class="quick-comment-loading-message">正加载编辑器</p></div><div id="editor-messages"></div><div id="all-messages"></div><form style="display:block;" class="quick-comment-form aui" method="post" name="inlinecommentform" action="http://wiki.tuniu.org/pages/doaddcomment.action?pageId=71350192"><div title="添加评论 (m)" class="quick-comment-prompt"><span>写评论…</span></div></form></div></div>
+
+    
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint" style="display: none;">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger">添加评论</a></span>
+                </p>
+            </div>
+            </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+
+        
+            <div id="footer">
+
+    <section class="footer-body">
+
+                        
+    
+
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id="footer-build-information">5.1</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">团队协作软件</a></li>
+        <li class="print-only">由团队协作软件 Atlassian Confluence 5.1打印。</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">报告缺陷</a></li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian 新闻</a></li>
+    </ul>
+
+    
+
+            
+    
+    </section>
+
+</div>
+
+    </div>
+
+
+<div id="content-hover-0" class="ajs-content-hover"><div class="contents" style="width: 300px;"></div></div><div id="content-hover-1" class="ajs-content-hover"><div class="contents" style="width: 300px;"></div></div><div id="content-hover-2" class="ajs-content-hover"><div class="contents" style="width: 300px;"></div></div><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="content-hover-shadow" style="display: none;"><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div class="qr-notice aui-message warning"></div><div id="fileuploadShim" style="position: relative; z-index: 0;"></div><div id="p1c1rsdu7s171e1bl517hfvlu1g690_html5_container" class="plupload html5" style="position: absolute; background: transparent; width: 2379px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 1101px; left: 0px;"><input id="p1c1rsdu7s171e1bl517hfvlu1g690_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" type="file" accept="" multiple="multiple"></div><div id="inline-dialog-notifications-miniview" class="aui-inline-dialog"><div class="contents" style="width: 500px;"><iframe id="notifications-miniview-iframe" src="./Pebble服务框架 - A-基础服务部 - Confluence_files/notifications-miniview.html" frameborder="0"></iframe></div><div id="arrow-notifications-miniview" class="arrow"></div></div><div id="editor-preload-container" style="display: none;">
+<div class="hidden">
+        
+
+
+<content tag="breadcrumbs">
+    
+    
+    <ol id="quickedit-breadcrumbs">
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/display/BSD">A-基础服务部</a></span>
+                                                </li><li id="ellipsis" title="显示全部导航项"><span><strong>…</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=49207669">A-基础服务部 首页</a></span>
+                                        
+                
+        </li><li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067158">产品</a></span>
+                                        
+                
+        </li><li class="hidden-crumb">
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71067878">JAVA开发框架-Pebble(铺路石)</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=74057582">文档</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class="edited-page-title"><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192">Pebble服务框架</a></span>
+                </li></ol>
+
+</content>
+</div>
+
+
+<div id="editor-precursor">
+    <div class="cell">
+    
+        <div id="content-title-div">
+                                                                                                                        
+
+<div class="field-group
+    ">
+    <label id="content-title-label" for="content-title">
+    
+        </label>
+
+                <input type="text" name="title" id="content-title" value="Pebble服务框架" tabindex="1" class="text   pagetitle" autocomplete="off" placeholder="">
+                      </div>        </div>
+
+        <div id="editor-messages">
+            
+                                
+<div id="heartbeat-div" class="hidden">
+    <div class="aui-message warning closeable">
+            <span class="aui-icon icon-warning"></span>
+        当前页面正在被<span id="other-users-span"></span>编辑。
+    </div>
+</div>
+
+
+        </div>
+        <div id="all-messages">
+            
+<div id="action-messages">
+                        </div>
+        </div>
+    </div>
+</div>                                                                                            
+
+<script type="text/x-template" title="editor-css">
+    <link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1.0/_/download/batch/confluence.web.resources:panel-styles/confluence.web.resources:panel-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1.0/_/download/batch/confluence.web.resources:content-styles/confluence.web.resources:content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1.0/_/download/batch/confluence.web.resources:panel-styles/confluence.web.resources:panel-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.0/_/download/batch/com.atlassian.auiplugin:aui-experimental-page-layout-typography/com.atlassian.auiplugin:aui-experimental-page-layout-typography.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.0/_/download/batch/com.atlassian.auiplugin:aui-experimental-avatars/com.atlassian.auiplugin:aui-experimental-avatars.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.0/_/download/batch/com.atlassian.auiplugin:aui-experimental-page-layout/com.atlassian.auiplugin:aui-experimental-page-layout.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/batch/com.atlassian.confluence.editor:editor-content-styles/com.atlassian.confluence.editor:editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.0/_/download/batch/com.atlassian.auiplugin:aui-experimental-lozenge/com.atlassian.auiplugin:aui-experimental-lozenge.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/2.10/_/download/batch/com.atlassian.confluence.plugins.status-macro:view_content_status/com.atlassian.confluence.plugins.status-macro:view_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/2.10/_/download/batch/com.atlassian.confluence.plugins.status-macro:editor_content_status/com.atlassian.confluence.plugins.status-macro:editor_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/batch/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/3.6.1/_/download/batch/confluence.extra.attachments:attachments-css/confluence.extra.attachments:attachments-css.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/3/_/styles/colors.css?spaceKey=BSD" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/doc-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/splitter.css" media="all">
+
+</script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<div class="editor-container">
+
+        
+            <div id="image-properties-tab-items" class="hidden">
+                <div title="Effects" data-weight="10">image-effects</div>
+            <div title="Title" data-weight="20">image-attributes</div>
+    </div>
+            
+
+<div id="link-browser-tab-items" class="hidden">
+                <div title="Search" data-weight="10">search</div>
+            <div title="Recently Viewed" data-weight="20">recentlyviewed</div>
+            <div title="Attachments" data-weight="30">attachments</div>
+            <div title="Web Link" data-weight="40">weblink</div>
+            <div title="Advanced" data-weight="50">advanced</div>
+    </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+        <div id="toolbar">
+        <div id="rte-toolbar" class="aui-toolbar aui-toolbar2">
+
+            <div class="aui-toolbar2-primary">
+                <ul class="aui-buttons">
+                                        <li id="format-dropdown" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="format-dropdown-display" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="toolbar-trigger aui-dd-trigger aui-button" data-control-id="formatselect">
+                                <span class="dropdown-text">Paragraph</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <ul id="format-dropdown-display-menu" class="aui-dropdown hidden">
+                                    <li class="dropdown-item format-p" data-format="p" data-tooltip="Paragraph (Ctrl+0)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Paragraph</a>
+    </li>
+                                    <li class="dropdown-item format-h1" data-format="h1" data-tooltip="Heading 1 (Ctrl+1)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 1</a>
+    </li>
+                                    <li class="dropdown-item format-h2" data-format="h2" data-tooltip="Heading 2 (Ctrl+2)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 2</a>
+    </li>
+                                    <li class="dropdown-item format-h3" data-format="h3" data-tooltip="Heading 3 (Ctrl+3)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 3</a>
+    </li>
+                                    <li class="dropdown-item format-h4" data-format="h4" data-tooltip="Heading 4 (Ctrl+4)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 4</a>
+    </li>
+                                    <li class="dropdown-item format-h5" data-format="h5" data-tooltip="Heading 5 (Ctrl+5)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 5</a>
+    </li>
+                                    <li class="dropdown-item format-h6" data-format="h6" data-tooltip="Heading 6 (Ctrl+6)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Heading 6</a>
+    </li>
+                                    <li class="dropdown-item format-pre" data-format="pre" data-tooltip="Preformatted (Ctrl+7)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Preformatted</a>
+    </li>
+                                    <li class="dropdown-item format-blockquote" data-format="blockquote" data-tooltip="Quote (Ctrl+8)">
+        <a class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">Quote</a>
+    </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bold" data-tooltip="Bold (Ctrl+B)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="bold">
+                <span class="icon icon-bold ">Bold</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-italic" data-tooltip="Italic (Ctrl+I)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="italic">
+                <span class="icon icon-italic ">Italic</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-underline" data-tooltip="Underline (Ctrl+U)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="underline">
+                <span class="icon icon-underline ">Underline</span>
+        </a>
+    </li>
+                                        <li id="color-picker-control" class="toolbar-item toolbar-splitbutton">
+                        <a class="toolbar-trigger aui-button" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" id="rte-button-color" data-color="003366" data-tooltip="Colour">
+                                <span class="icon icon-textcolor ">Colour picker</span>
+                            <span class="selected-color"></span>
+                        </a>
+                        <div class="aui-dd-parent">
+                            <a class="toolbar-trigger aui-dd-trigger aui-button" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" id="rte-button-color-selector" data-control-id="colorSelector" data-tooltip="More colours">
+                                    <span class="icon icon-dropdown ">More colours</span>
+                            </a>
+                            <div class="color-picker-container">
+                                <div class="color-picker aui-dropdown hidden">
+                                    <ul>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #000000" data-color="000000">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #993300" data-color="993300">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #333300" data-color="333300">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #003300" data-color="003300">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #003366" data-color="003366">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #000080" data-color="000080">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #333399" data-color="333399">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #333333" data-color="333333">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #800000" data-color="800000">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FF6600" data-color="FF6600">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #808000" data-color="808000">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #008000" data-color="008000">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #008080" data-color="008080">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #0000FF" data-color="0000FF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #666699" data-color="666699">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #808080" data-color="808080">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FF0000" data-color="FF0000">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FF9900" data-color="FF9900">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #99CC00" data-color="99CC00">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #339966" data-color="339966">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #33CCCC" data-color="33CCCC">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #3366FF" data-color="3366FF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #800080" data-color="800080">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #999999" data-color="999999">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FF00FF" data-color="FF00FF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FFCC00" data-color="FFCC00">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FFFF00" data-color="FFFF00">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #00FF00" data-color="00FF00">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #00FFFF" data-color="00FFFF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #00CCFF" data-color="00CCFF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #993366" data-color="993366">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #C0C0C0" data-color="C0C0C0">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FF99CC" data-color="FF99CC">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FFCC99" data-color="FFCC99">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FFFF99" data-color="FFFF99">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #CCFFCC" data-color="CCFFCC">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #CCFFFF" data-color="CCFFFF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #99CCFF" data-color="99CCFF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #CC99FF" data-color="CC99FF">&nbsp;</a></li>
+            <li><a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" style="background-color: #FFFFFF" data-color="FFFFFF">&nbsp;</a></li>
+    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="more-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="rte-button-more" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="toolbar-trigger aui-dd-trigger aui-button" data-tooltip="More">
+                                    <span class="icon icon-more ">Formatting</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <div id="rte-button-more-menu" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                                                <li class="dropdown-item more-menu-trigger" data-control-id="strikethrough" data-tooltip="Strikethrough (Ctrl+Shift+S)">
+        <a id="rte-strikethrough" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon icon-check hidden"></span>
+Strikethrough
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sub" data-tooltip="">
+        <a id="rte-sub" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon icon-check hidden"></span>
+Subscript
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sup" data-tooltip="">
+        <a id="rte-sup" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon icon-check hidden"></span>
+Superscript
+        </a>
+    </li>
+                                                        <li class="dropdown-item more-menu-trigger" data-control-id="monospace" data-tooltip="Format text with monospaced font">
+        <a id="rte-monospace" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon icon-check hidden"></span>
+Monospace
+        </a>
+    </li>
+
+                                                                                                                    </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                            <li class="dropdown-item more-menu-trigger no-icon" data-format="removeformat" data-tooltip="Clears formatting on currently selected text">
+        <a id="rte-removeformat" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+            Clear Formatting
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bullist" data-tooltip="Bullet list (Ctrl+Shift+B)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="bullist">
+                <span class="icon icon-bullist ">Bullet list</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-numlist" data-tooltip="Numbered list (Ctrl+Shift+N)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="numlist">
+                <span class="icon icon-numlist ">Numbered list</span>
+        </a>
+    </li>
+                                            
+                <li class="toolbar-item aui-button" id="rte-button-tasklist" data-tooltip="Task list ([ then ])">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="tasklist">
+                <span class="icon icon-tasklist ">Task list</span>
+        </a>
+    </li>
+                                    </ul>
+
+                <ul class="aui-buttons">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-outdent" data-tooltip="Outdent">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="outdent">
+                <span class="icon icon-outdent ">Outdent</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-indent" data-tooltip="Indent">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="indent">
+                <span class="icon icon-indent ">Indent</span>
+        </a>
+    </li>
+                </ul>
+
+                <ul class="aui-buttons">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyleft" data-tooltip="Align left">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="justifyleft">
+                <span class="icon icon-justifyleft ">Align left</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifycenter" data-tooltip="Align center">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="justifycenter">
+                <span class="icon icon-justifycenter ">Align center</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyright" data-tooltip="Align right">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="justifyright">
+                <span class="icon icon-justifyright ">Align right</span>
+        </a>
+    </li>
+                </ul>
+
+                <ul class="aui-buttons">
+                    <li class="toolbar-item" data-tooltip="Insert Link (Ctrl+K)">
+                        <a id="rte-button-link" class="toolbar-trigger aui-button" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="linkbrowserButton">
+                                <span class="icon icon-link "></span>
+                            <span class="trigger-text">Link</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-table-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert-table" data-tooltip="Insert Table">
+                                    <span class="icon icon-table "></span>
+                                <span class="dropdown-text">Table</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="table-picker-container" class="hidden">
+                                <div class="table-picker-box" data-tooltip="Hold SHIFT for a table without a heading.">
+                                    <div class="table-picker-background">
+                                        <div class="picker picker-cell"></div>
+                                        <div class="picker picker-heading heading"></div>
+                                        <div class="picker picker-selected-cell"></div>
+                                        <div class="picker picker-selected-heading heading"></div>
+                                    </div>
+                                    <p class="desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                
+                <ul class="aui-buttons">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-menu">
+                        <div class="aui-dd-parent">
+                            <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert" data-tooltip="Insert More Content">
+                                    <span class="icon icon-insert "></span>
+                                <span class="dropdown-text">Insert</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="insert-menu-options" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert Content</span>
+                                    <ul id="content-insert-list">
+                                        
+        
+        <li class="dropdown-item content-image" data-command="mceConfimage" data-tooltip="Insert Image (Ctrl+M)">
+        <a id="rte-insert-image" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Image
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-link" data-control-id="linkbrowserButton" data-tooltip="Insert Link (Ctrl+K)">
+        <a id="rte-insert-link" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Link
+        </a>
+    </li>
+                                                                                    
+    
+        <li class="dropdown-item content-attachment" data-command="mceConfAttachments" data-tooltip="Insert Attachment">
+        <a id="rte-insert-attachment" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Attachment
+        </a>
+    </li>
+                                                                                
+    
+        <li class="dropdown-item content-symbol" data-command="confCharmap" data-tooltip="Insert Symbol">
+        <a id="rte-insert-symbol" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Symbol
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-emoticon" data-command="mceEmotion" data-tooltip="Insert Emoticon">
+        <a id="rte-insert-emoticon" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Emoticon
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-wikimarkup" data-command="InsertWikiMarkup" data-tooltip="Insert Wiki Markup (Ctrl+Shift+D)">
+        <a id="rte-insert-wikimarkup" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Wiki Markup
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-hr" data-command="InsertHorizontalRule" data-tooltip="Insert horizontal rule (----)">
+        <a id="rte-insert-hr" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Horizontal rule
+        </a>
+    </li>
+                                                                                    
+        
+        <li class="dropdown-item content-tasklist" data-command="InsertInlineTaskListNoToggle" data-tooltip="Insert Task List ([ then ])">
+        <a id="rte-insert-tasklist" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Task List
+        </a>
+    </li>
+                                                                            </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert Macro</span>
+                                    <ul id="macro-insert-list">
+                                                                                                                                                                                <li class="dropdown-item macro-insertmention-button" data-macro-name="insertmention-button" data-tooltip="Insert &#39;User Mention&#39; macro">
+        <a id="insertmention-button" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ User Mention
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-jiralink" data-macro-name="jiralink" data-tooltip="Insert &#39;JIRA Issue&#39; macro">
+        <a id="jiralink" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ JIRA Issue
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-info" data-macro-name="info" data-tooltip="Insert &#39;Info&#39; macro">
+        <a id="info" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Info
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-status" data-macro-name="status" data-tooltip="Insert &#39;Status&#39; macro">
+        <a id="status" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Status
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-gallery" data-macro-name="gallery" data-tooltip="Insert &#39;Gallery&#39; macro">
+        <a id="gallery" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Gallery
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-toc" data-macro-name="toc" data-tooltip="Insert &#39;Table of Contents&#39; macro">
+        <a id="toc" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Table of Contents
+        </a>
+    </li>
+                                                                                                                            
+        
+        <li class="dropdown-item content-macro" data-command="mceConfMacroBrowser" data-tooltip="Open the macro browser (Ctrl+Shift+A)">
+        <a id="rte-insert-macro" class="item-link" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#">
+                <span class="icon "></span>
+ Other Macros
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                                <ul class="aui-buttons">
+                    <li id="pagelayout-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-pagelayout" data-tooltip="Page Layout">
+                                    <span class="icon icon-layout pagelayout-default">Page Layout</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <ul id="pagelayout-menu-options" class="aui-dropdown hidden">
+                                <li class="dropdown-item" data-tooltip="No Layout">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-none&quot;, &quot;columns&quot;: 0   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-none">No Layout</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple">Two column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, left sidebar)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-left">Two column (simple, left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, right sidebar)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-right">Two column (simple, right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (simple)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-simple">Three column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two">Two column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (left sidebar)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-left">Two column (left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (right sidebar)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-right">Two column (right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three">Three column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (left and right sidebars)">
+    <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-sidebars&quot;, &quot;columns&quot;: [&quot;sidebars&quot;, &quot;large&quot;, &quot;sidebars&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-sidebars">Three column (left and right sidebars)</span>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                
+                <ul class="aui-buttons">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-undo" data-tooltip="Undo (Ctrl+Z)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="undo">
+                <span class="icon icon-undo ">Undo</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-redo" data-tooltip="Redo (Ctrl+Y)">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="redo">
+                <span class="icon icon-redo ">Redo</span>
+        </a>
+    </li>
+                </ul>
+
+                
+            </div>            <div class="aui-toolbar2-secondary">
+                <ul class="aui-buttons">
+                        <li class="toolbar-item aui-button" id="rte-button-searchreplace" data-tooltip="Find/Replace">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="searchreplace">
+                <span class="icon icon-searchreplace ">Find/Replace</span>
+        </a>
+    </li>
+                </ul>
+                <ul class="aui-buttons">
+                        <li class="toolbar-item aui-button" id="rte-button-help" data-tooltip="Help">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="help">
+                <span class="icon icon-help ">Keyboard Shortcuts Help</span>
+        </a>
+    </li>
+                </ul>
+                <ul class="aui-buttons">
+                        <li class="toolbar-item aui-button" id="rte-button-hidetools" data-tooltip="Hide Tools">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="hidetools">
+                <span class="icon icon-hidetools ">Hide the toolbars</span>
+        </a>
+    </li>
+                        <li class="toolbar-item aui-button" id="rte-button-fullscreen" data-tooltip="Full Screen">
+        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" data-control-id="fullscreen">
+                <span class="icon icon-fullscreen ">Launch editor full screen</span>
+        </a>
+    </li>
+                </ul>
+            </div>        </div>    </div>
+    <div id="wysiwyg" class="resize">
+        <div id="rte" class="cell editor-default">
+            <textarea id="wysiwygTextarea" name="wysiwygContent" class="hidden tinymce-editor"></textarea>
+        </div>
+    </div>
+    <div id="editor-html-source-container" class="hidden">
+        <textarea id="editor-html-source" class="monospaceInput"></textarea>
+    </div>
+
+    <div id="preview">
+                        <div id="previewArea" class="cell">
+        </div>
+    </div>
+
+    
+
+<div id="savebar-container">
+    <div id="rte-savebar" class="aui-toolbar aui-toolbar2">
+
+                    
+        
+        <div class="toolbar-split toolbar-split-row">
+            <div class="toolbar-split toolbar-split-left">
+            <ul class="aui-buttons">
+                                                                                            <li class="toolbar-item aui-button" data-tooltip="Insert Attachment">
+                        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" id="rte-button-attachments">
+                            <span class="icon icon-attachment"></span>
+                            <span class="trigger-text">14 附件</span>
+                        </a>
+                    </li>
+                                                                            <li class="toolbar-item aui-button" data-tooltip="编辑页面标签">
+                        <a class="toolbar-trigger" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" id="rte-button-labels">
+                            <span class="icon icon-labels"></span>
+                            <span class="trigger-text">标签</span>
+                        </a>
+                    </li>
+                            </ul>
+                    </div>            <div class="toolbar-split toolbar-split-right">
+                            <div class="aui-buttons" id="toolbar-group-minor-edit">
+                    <ul class="toolbar-group toolbar-group-watch-page" id="toolbar-group-watch-page-after-comment">
+                        <li class="toolbar-item">
+                            <label for="watchPage">关注此页面</label>
+                            <input id="watchPage" name="watchPageAfterComment" value="true" type="checkbox" checked="checked">
+                        </li>
+                    </ul>
+                                             <span class="rte-toolbar-comment toolbar-item">
+                            <input id="versionComment" name="versionComment" placeholder="变更了什么?" class="text" type="text" size="35">
+                            <label for="versionComment" class="assistive">变更了什么?</label>
+                        </span>
+                                                                 <span class="minor-edit toolbar-item">
+                            <input id="notifyWatchers" name="notifyWatchers" value="true" type="checkbox" checked="checked">
+                            <label for="notifyWatchers"><span>通知关注人</span></label>
+                        </span>
+                                    </div>
+            
+                    <div class="aui-buttons">
+                <span id="rte-spinner" class="toolbar-item">&nbsp;</span>
+            </div>
+            <ul class="aui-buttons toolbar-group-edit assistive">
+                <li class="toolbar-item">
+                    <a id="rte-button-edit" class="toolbar-trigger aui-button" title="返回编辑模式" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#"><span class="trigger-text">编辑</span></a>
+                </li>
+            </ul>
+            <ul class="aui-buttons toolbar-group-preview">
+                <li class="toolbar-item">
+                    <a id="rte-button-preview" title="Preview" class="toolbar-trigger aui-button" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#"><span class="trigger-text"><span>预览</span></span></a>
+                </li>
+            </ul>
+
+        
+            <ul class="save-button-container">
+                                                                                                                                                            <li class="toolbar-item">
+                            <button class="toolbar-trigger aui-button aui-button-primary" type="submit" href="#" id="rte-button-publish" name="confirm" value="Save" tabindex="101" title="保存您的页面">
+                                <span class="trigger-text"><span>保存</span></span>
+                            </button>
+                        </li>
+                                                </ul>
+                                            <ul class="aui-buttons">
+                <li class="toolbar-item toolbar-item-link">
+                    <button class="toolbar-trigger aui-button aui-button-link" type="submit" id="rte-button-cancel" value="discard" name="cancel"><span class="trigger-text">取消</span></button>
+                </li>
+            </ul>
+
+        </div>         </div>
+                    <div class="toolbar-split toolbar-split-row" id="toolbar-hints-draft-status">
+                <div class="toolbar-split toolbar-split-left">
+                    <div class="hints hints-open">
+                        <span class="hints-controls">
+                            <a href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192#" class="hints-next" data-tooltip="下一提示"><span class="icon">下一提示</span></a>
+                        </span>
+                        <span class="hints-text"></span>
+                    </div>
+                </div>
+                <div class="toolbar-split toolbar-split-right">
+                    <div id="draft-status"></div>
+                </div>
+            </div>
+             </div> </div>
+
+
+    
+</div>
+
+
+
+<script type="text/x-template" title="dynamic-editor-metadata">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_">
+            <meta name="ajs-num-attachments" content="14">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-cancel-button-close-text" content="关闭">
+            <meta name="ajs-content-id" content="71350192">
+            <meta name="ajs-action-locale" content="zh_CN">
+            <meta name="ajs-save-drafts" content="true">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-cancel-button-discard-text" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-attachment-source-content-id" content="71350192">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-draft-type" content="page">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-can-attach-files" content="true">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autocomplete" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autoformat" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </script>
+
+
+<div id="hidden-permission-fields" class="hidden">
+    <input id="viewPermissionsUsers" type="text" name="viewPermissionsUsers" value="">
+    <input id="editPermissionsUsers" type="text" name="editPermissionsUsers" value="">
+    <input id="viewPermissionsGroups" type="text" name="viewPermissionsGroups" value="">
+    <input id="editPermissionsGroups" type="text" name="editPermissionsGroups" value="">
+</div>
+
+<script type="text/x-template" title="tableForm">
+    <form id="tinymce-table-form" class="aui">
+        <div class="field-group">
+            <label for="rows">Rows</label>
+            <input id="rows" name="rows" type="text" size="3" autocomplete="off" value="{0}">
+        </div>
+        <div class="field-group">
+            <label for="cols">Columns</label>
+            <input id="cols" name="cols" type="text" size="3" autocomplete="off" value="{1}">
+        </div>
+        <div class="field-group hidden">
+            <input id="width" type="hidden" name="width" value="">
+            <label for="width">Width</label>
+        </div>
+        <div class="group">
+            <div class="checkbox">
+                <input id="table-heading-checkbox" class="checkbox" type="checkbox" name="heading" checked="checked" value="true">
+                <label for="table-heading-checkbox">First row is heading</label>
+            </div>
+        </div>
+        <div class="group hidden">
+            <div class="checkbox">
+                <input id="table-equal-width-columns-checkbox" class="checkbox" type="checkbox" name="equal-width-columns" value="false">
+                <label for="table-equal-width-columns-checkbox">Equal width columns</label>
+            </div>
+        </div>
+    </form>
+</script>
+<input type="hidden" name="draftId" value="0" id="draftId"><input type="hidden" name="originalVersion" value="139" id="originalVersion">    <input type="hidden" name="atl_token" value="4e8518006cc7f0195eff7f9b046270c04297a931">
+</div></body></html>

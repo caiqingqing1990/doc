@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pebble服务框架 - A-基础服务部 - Confluence</title>
+
+        
+
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://wiki.tuniu.org">
+
+<meta id="atlassian-token" name="atlassian-token" content="4e8518006cc7f0195eff7f9b046270c04297a931">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="BSD">
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css" media="all">
+<!--[if gte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=gte+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/0ceb0f04984b00f4029e4dc0bf5acd30/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop,main/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/4c1d05fce5f5855131f346c8ffe667a8/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/4c1d05fce5f5855131f346c8ffe667a8/_/download/contextbatch/css/page/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/173607af8949df9ddd658a84f449f662/_/download/contextbatch/css/viewcontent/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/173607af8949df9ddd658a84f449f662/_/download/contextbatch/css/viewcontent/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/7aae0184a7b6ec3199b291543c74e957/_/download/contextbatch/css/plugin.quick.comment.pre/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/ef0d65a8ad4df3ceda77986f0b3eab80/_/download/contextbatch/css/atl.general/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/ef0d65a8ad4df3ceda77986f0b3eab80/_/download/contextbatch/css/atl.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1.1.22/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/3/_/styles/colors.css?spaceKey=BSD" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/doc-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:documentation/splitter.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1513838173798">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <div class="field-group">
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="没有匹配" placeholder="用户名、组或邮件"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+        </div>
+        <div class="field-group">
+            <textarea class="textarea" id="note" placeholder="添加一个可选的说明"/>
+        </div>
+        <div class="field-group button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="分享" disabled/>
+            <a class="close-dialog" href="#">取消</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-username">
+    <li data-username="{username}" style="display: none">
+        <img src="{thumbnailLink.href}" title="{title}">
+        <span class="title" title="{title}">{title}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <img src="{icon}" title="{email}">
+        <span class="title" title="{email}">{email}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-group">
+    <li data-group="{title}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}">
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="965bf682e213b2c2b217e94bb6cd2d46">
+            <meta name="ap-request-id" content="47e5ed4e174d28d6">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.acs-side-bar {visibility: hidden;}</style>
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="71350192">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Pebble服务框架">
+            <meta name="ajs-parent-page-title" content="文档">
+            <meta name="ajs-parent-page-id" content="74057582">
+            <meta name="ajs-space-key" content="BSD">
+            <meta name="ajs-space-name" content="A-基础服务部">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-user-display-name" content="蔡青青 caiqingqing (99999)">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/972896400fbc66c55cfa63b2d6ca1c26/_/download/contextbatch/css/comment-editor/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://wiki.tuniu.org">
+            <meta name="ajs-version-number" content="5.1">
+            <meta name="ajs-build-number" content="4215">
+            <meta name="ajs-remote-user" content="caiqingqing">
+            <meta name="ajs-static-resource-url-prefix" content="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="26457280">
+            <meta name="ajs-user-locale" content="zh_CN">
+            <meta name="ajs-enabled-dark-features" content="">
+            <meta name="ajs-atl-token" content="4e8518006cc7f0195eff7f9b046270c04297a931">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-editor.loader.resources" content="&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent/batch.css?media=%28max-width%3A+1270px%29&quot; media=&quot;(max-width: 1270px)&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1db8667abdadc97a74eb80fb314299ea/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent/batch.js&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="yyyy-MM-dd">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="Confluence"/>
+
+    <!-- include system javascript resources -->
+    <script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/172/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/b7d2b9025107902a9c970c94b3478118/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/4c1d05fce5f5855131f346c8ffe667a8/_/download/contextbatch/js/page/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/7d3c7ab7e86e33c090f01ce073751b3f/_/download/contextbatch/js/viewcontent,main,plugin.quick.comment.pre,atl.general/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/15ea5faf37e60ea2c9349603e0aab48a/_/download/contextbatch/js/atl.comments/batch.js" ></script>
+<script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/1.1.22/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.js" ></script>
+
+    
+
+        
+    <!-- end system javascript resources -->
+    
+
+    
+                <link rel="canonical" href="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192">
+        <link rel="shortlink" href="http://wiki.tuniu.org/x/sLdAB">
+    <meta name="wikilink" content="[BSD:Pebble服务框架]">
+    <meta name="page-version" content="139">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation  aui-theme-default aui-layout">
+
+        
+    <div id="full-height-container">
+    <div id="header-precursor">
+        
+                    </div>
+
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class="aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-haspopup="true" tabindex="0"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="/"><img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/logo/confluence-logo.png" alt="Confluence" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                    <li>
+            
+    
+        
+<a  id="people-directory-link" href="/peopledirectory.action"  class=" aui-nav-imagelink"   title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                    <li id="browseMenu" class="aui-nav aui-style-blocks" role="menu">
+            
+    
+        <a id="browse-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="browse-menu-link-content" title="浏览">
+        <span class="browse">浏览</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="browse-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="browse-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="space-pages-link" href="/pages/listpages.action?key=BSD" class="    "      title="浏览A-基础服务部空间的页面" >
+        页面
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=BSD" class="    "      title="浏览A-基础服务部空间的日志" >
+        日志
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=BSD" class="    "      title="浏览A-基础服务部空间的标签" >
+        标签
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=BSD" class="    "      title="浏览A-基础服务部空间的附加功能" >
+        空间操作
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+        </li>
+                    <li>
+            
+    
+            
+<a  id="create-page-button" href="#"  class="aui-button aui-style aui-button-primary aui-nav-imagelink"   title="Create Content">
+            <span>Create</span>
+    </a>
+        </li>
+        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                <li>
+        
+    
+            
+<a  id="doctheme-anchor" href="#"  class=" aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>
+<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="/dosearchsite.action" method="get">
+    <fieldset>
+                        <label for="quick-search-query" class="assistive">快速搜索</label>
+        <input id="quick-search-query" class="text app-search search quick-search-query" type="text"
+               accessKey="q" autocomplete="off" name="queryString" title="快速搜索" placeholder="搜索"/>
+        <input id="quick-search-submit" class="quick-search-submit" type="submit" value="搜索"/>
+
+        <div class="aui-dd-parent quick-nav-drop-down"></div>
+    </fieldset>
+    <div class="hidden parameters">
+                    <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                </div>
+</form>
+</li>
+    <li>    
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="帮助">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">帮助</span><span class="aui-icon-dropdown"></span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="confluence-help-link" href="http://docs.atlassian.com/confluence/docs-51/Getting+Help+And+Support" class="    "      title="访问Confluence文档站点"  target="_blank"
+>
+        在线帮助
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="#" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="feed-builder-link" href="/dashboard/configurerssfeed.action" class="    "      title="创建个性化的 RSS源。" >
+        RSS源构建器
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-51/whatsnew/iframe?od=false&amp;a=false" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="#" class="   user-item administration-link "      title="浏览小工具" >
+        可用的小工具
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    </li>
+    <li>    
+    </li>
+                <li>
+        
+    
+            
+<a  id="notifications-anchor" href="#"  class="mw-anchor read aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>                                    
+        <a id="user-menu-link" class="aui-dropdown2-trigger " aria-haspopup="true" aria-owns="user-menu-link-content" data-username="caiqingqing" href="#" title="蔡青青 caiqingqing (99999)">
+                    <div class="aui-avatar aui-avatar-small">
+                <div class="aui-avatar-inner">
+                    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/profilepics/default.png"/>
+                </div>
+            </div>
+            <span class="aui-icon-dropdown"></span>
+        </a>
+        <nav id="user-menu-link-content" class="aui-dropdown2 aui-style-default">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-preferences"                        class="aui-list-truncate section-user-preferences first">
+                                                    <li>
+    
+        
+<a  id="view-user-history-link" href="/users/viewuserhistory.action" class="   user-item user-history popup-link "      title="" >
+        最近浏览
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-content"                        class="aui-list-truncate section-user-content">
+                                                    <li>
+    
+        
+<a  id="view-user-profile-link" href="/users/viewmyprofile.action" class="   user-item user-profile "      title="" >
+        用户信息
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-settings-link" href="/users/viewmysettings.action" class="   user-item "      title="" >
+        设置
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  href="/users/viewfollow.action?username=caiqingqing" class="   follow-link "      title="" >
+        社交
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-favourites-link" href="/users/viewmyfavourites.action" class="   user-item "      title="" >
+        收藏
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-watches-link" href="/users/viewnotifications.action" class="   user-item "      title="" >
+        关注
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-drafts-link" href="/users/viewmydrafts.action" class="   user-item "      title="" >
+        草稿
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="upm-requests-link" href="/plugins/servlet/upm/requests?source=header_user" class="    "      title="" >
+        Atlassian Marketplace
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-operations"                        class="aui-list-truncate section-user-operations">
+                                                    <li>
+    
+        
+<a  id="logout-link" href="/logout.action" class="   user-item logout-link "      title="" >
+        注销
+</a>
+</li>
+                                            </ul>
+                </div>
+                    </nav>
+                    </li>
+</ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    <div id="splitter">
+    <div id="splitter-sidebar" >
+        
+
+                    
+    
+
+
+<div class="plugin_pagetree">
+
+                        <div id="pagetreesearch">
+            <form method="POST" class="aui" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="49207669">
+                                <input type="hidden" name="spaceKey" value="BSD">
+                <input type="text"  class="text medium-field" size="20" name="queryString">
+                <input type="submit" class="aui-button" value="Search">
+            </form>
+        </div>
+            
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="71350192">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="49207669">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="BSD" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D71350192">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="74057582">
+                                    <input type="hidden" name="ancestorId" value="71067878">
+                                    <input type="hidden" name="ancestorId" value="71067158">
+                                    <input type="hidden" name="ancestorId" value="49207669">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/5.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+                        
+            
+<div id="main"  class="aui-page-panel" >
+    <div id="main-header">
+        
+        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                            <li class="ajs-button normal">
+
+    
+        
+    
+    <a  id="editPageLink" href="/pages/editpage.action?pageId=71350192"  class="edit full-load"  accessKey="e"  title="编辑">
+                <span><u>E</u>编辑</span>    </a>
+</li>
+                <li class="ajs-button normal">
+
+    
+            
+    
+    <a  id="shareContentLink" href="#"  class="share"   title="通过发送电子邮件给其他人共享此内容">
+                <span>分享</span>    </a>
+</li>
+                        
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation"><span><span>添加</span></span></a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="add-menu-space"                     class="section-space first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="createPageLink" href="/pages/createpage.action?spaceKey=BSD&amp;fromPageId=71350192"  class="add-page"  accessKey="p"  title="添加页面">
+                <span>页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createPageLinkTemplate" href="/pages/createpage-choosetemplate.action?spaceKey=BSD&amp;newSpaceKey=BSD&amp;fromPageId=71350192"  class="add-page-template"  accessKey="p"  title="使用模板添加页面">
+                <span>由模板产生的页面</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createBlogpostLink" href="/pages/createblogpost.action?spaceKey=BSD"  class="add-news"   title="添加日志">
+                <span>日志</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="add-menu-page"                     class="section-page aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="add-comment-menu-link" href="/pages/viewpage.action?pageId=71350192&amp;showComments=true&amp;showCommentArea=true#addcomment"  class="add-comment"   title="添加评论">
+                <span>评论</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="add-attachment-link" href="/pages/viewpageattachments.action?pageId=71350192"  class="add-attachment"  accessKey="t"  title="添加一个附件">
+                <span>附件</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>工具</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=71350192"  class="action-view-attachments"  accessKey="t"  title="查看附件">
+                <span><u>t</u>附件 (14)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=71350192"  class="action-view-history"   title="">
+                <span>页面历史</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=71350192"  class="action-page-permissions"   title="编辑限制">
+                <span>限制</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-marker"                     class="section-marker aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="page-favourite" href="/labels/addfavourite.action?entityId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931"  class="action-page-favourite"   title="">
+                <span>收藏夹</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="page-watch" href="/pages/addpagenotification.action?pageId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931"  class="action-page-watching"   title="">
+                <span>关注</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="page-unwatch" href="/pages/removepagenotification.action?pageId=71350192&amp;atl_token=4e8518006cc7f0195eff7f9b046270c04297a931"  class="action-page-watching selected ie-page-watching-selected inactive"   title="">
+                <span>停止关注</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=71350192"  class="action-view-info"   title="">
+                <span>页面信息</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=71350192"  class=""   title="链接至本页面">
+                <span>链接到此页面…</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=BSD&amp;openId=71350192#selectedPageInHierarchy"  class=""   title="">
+                <span>以层级方式查看</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-source-link" href="/plugins/viewsource/viewpagesrc.action?pageId=71350192"  class="action-view-source popup-link"   title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-pdf-link" href="/spaces/flyingpdf/pdfpageexport.action?pageId=71350192"  class=""   title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-word-link" href="/exportword?pageId=71350192"  class="action-export-word"   title="">
+                <span>导出为Word</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="import-word-doc" href="/pages/worddav/uploadimport.action?pageId=71350192"  class=""   title="">
+                <span>Import Word Document</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="action-copy-page-link" href="/pages/copypage.action?idOfPageToCopy=71350192&amp;spaceKey=BSD"  class="action-copy"   title="">
+                <span>复制</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-move-page-dialog-link" href="/pages/viewpage.action?pageId=71350192"  class="action-move"   title="">
+                <span>移动</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+        
+                <h1 id="title-heading" class="pagetitle with-breadcrumbs">
+                            <div class="space-logo " data-key="BSD" data-name="A-基础服务部" data-entity-type="confluence.space">
+            <a><img class="logo global" src="/images/logo/default-space-logo-48.png" alt=""></a>
+        </div>            
+                            <div id="breadcrumb-section">
+                    
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first" >
+                
+
+                    <span class=""><a href="/display/BSD">A-基础服务部</a></span>
+                                                <li id="ellipsis" title="显示全部导航项"><span><strong>&#8230;</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=49207669">A-基础服务部 首页</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=71067158">产品</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=71067878">JAVA开发框架-Pebble(铺路石)</a></span>
+                            
+                
+        <li>
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=74057582">文档</a></span>
+                </ol>
+
+
+                </div>
+            
+            <span id="title-text" class="with-breadcrumbs">
+                                        <a href="/pages/viewpage.action?pageId=71350192">Pebble服务框架</a>
+                            </span>
+        </h1>
+    </div>
+
+    
+
+    
+    
+    
+    
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+    
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                按照空间和标题指定这个页面的新的父页面和子页面
+            </div>
+        </div>
+    </div>
+        <form class="aui" onsubmit="return false;">
+	        <fieldset>
+	                
+
+    <legend class="assistive"><span>变更父页面至已知页面</span></legend>
+	            <div class="field-group">
+	                <label for="new-space">新空间:</label>
+	                <div class="value new-space-value">
+	                    <input id="new-space-key" name="new-space-key" type="hidden" value="BSD">
+	                    	                        <span class="space-input">
+	                            <input id="new-space" name="new-space" value="A-基础服务部" disabled="disabled" class="text long-field">
+	                        </span>
+                            <div class="description warning">由于你没有该空间的页面删除权限，因此无法将页面移动到其他空间中。</div>
+	                    	                    <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	            <div class="field-group">
+	                <label for="new-parent-page">新的父页面:</label>
+	                <div class="value new-parent-page-value">
+	                    <span class="page-input">
+	                        <input id="new-parent-page" name="new-parent-page" value="文档" class="text long-field">
+	                    </span>
+                        <div class="description">输入页面标题来查看建议的页面列表。</div>
+	                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	        </fieldset>
+        </form>
+    <div class="location-info">
+        <div class="row">
+            <label>当前位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>新位置:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                为这个页面及其子页面选择新的父页面
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+	        <form class="aui" onsubmit="return false;">
+	            <fieldset>
+	                    
+
+    <legend class="assistive"><span>搜索父页面</span></legend>
+	                    
+
+    <label  for="move-page-search-query" class="assistive">搜索关键字</label>
+	                <input class="search-query text" id="move-page-search-query">
+	                    
+
+    <label  for="move-page-search-space" class="assistive">在空间中搜索</label>
+	                	                    <select id="move-page-search-space" class="search-space select" disabled="disabled">
+	                        <option value="BSD" selected="selected">A-基础服务部</option>
+	                    </select>
+	                	                <input type="button" value="搜索" class="button submit">
+	                	                    <div class="description warning">由于你没有该空间的页面删除权限，因此无法将页面移动到其他空间中。</div>
+	                	            </fieldset>
+	        </form>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">页面标题</th>
+                <th class="search-result-space">空间</th>
+                <th class="search-result-date">更新于</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+                <div id="page-permissions-error-div" class="aui-message warning shadowed closeable hidden">
+            <p class="title"/>
+            <span class="aui-icon icon-warning"></span>
+            <span class="aui-icon icon-close" tabindex="0" role="button"></span>
+        </div>
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div class="radio">
+                <input id="restrictViewRadio" class="radio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">页面浏览限制</label>
+                <input id="restrictEditRadio" class="radio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">页面编辑限制</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">至:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="aui-button normal">
+                        <a href="#">
+                            <img src="/images/icons/profilepics/default.png" alt="我"/>
+                            我
+                        </a>
+                        <span class="remote-user-name hidden">caiqingqing</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="aui-button">
+                    
+
+
+    
+    
+
+
+
+
+
+
+<a id='userpicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/openuserpicker.action?key=BSD&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/user_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose users" />
+						    人员...
+	        </a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="aui-button">
+                    
+
+
+    
+    
+
+ 
+
+
+
+
+<a id='grouppicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=BSD&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/group_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" />
+						    组...
+	        </a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input id="page-permissions-names-input" class="autocomplete-user-or-group text" type="text" name="permissionNames"
+                    placeholder="输入用户或组名:"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <button class="aui-button" id="add-typed-names">限制</button>
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete autocomplete-user-or-group-target"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small aui-iconfont-view"></span>
+                        <span>当前页面没有浏览限制</span>
+                    </td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small edit-icon"></span>
+                        <span>当前页面没有编辑限制</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">显示/隐藏</a>
+                <a id="toggle-inherited-permissions" title="点击查看继承权限">此页面继承了父级页面权限，只有对父级页面拥有查看权限的用户才可以查看此页面。</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="74057582">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">转至元数据结尾</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="此页面应用了权限限制，点击小锁图标查看或编辑限制。">
+                <span>应用页面限制</span>    </a>
+</li>
+                            <li class="page-metadata-item noprint">
+
+    
+        
+    
+    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=71350192&amp;metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="t"  title="附件：14">
+                <span><span class="page-metadata-attachments-text">附件：</span><span class="page-metadata-attachments-count">14</span></span>    </a>
+</li>
+                        <li class="page-metadata-modification-info">
+                                    由<a href="    /display/~liurui
+"
+                          class="url fn confluence-userlink" data-username="liurui"
+                   >刘锐 liurui (61549)</a>添加，由<a href="    /display/~liurui
+"
+                          class="url fn confluence-userlink" data-username="liurui"
+                   >刘锐 liurui (61549)</a>最后更新于2017-11-29
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=71350192&originalId=81044236">查看更改</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="#page-metadata-start" class="assistive">转至元数据起始</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+                           <h3>前言</h3><p>Pebble服务框架是开发框架中的核心功能，目标是规范设计、开发、测试的流程、手段、工具，给研发人员提供一整套的解决方案，聚合技术平台能力，提高研发效率，降低各业务项目的技术侧人力投入。</p><h3>功能</h3>
+<ul>
+  <li>服务定义：研发在设计初期确定系统间的交互接口，使用统一的IDL语法来编写，规范描述方式。使用统一的工具完成IDL到具体语言的代码转换。Java侧使用maven来管理接口定义的jar包版本；收口了管理，同时jar包就是文档，从根本上解决了文档不能及时更新的问题。服务的提供方实现服务接口，并由框架来完成自动服务暴露和注册。服务消费方通过引入服务jar的方式来直接使用服务的api。框架提供多种开源框架的support包，并开放简单、丰富的配置项。</li>
+  <li>服务治理：服务自动注册发现，并提供丰富的服务治理手段。server端服务并发控制、服务限流。client端负载均衡、熔断、服务降级等。提供客户端配置项和web控制台两种干预方式。服务的启停、注册、暴露等的时机保证服务的稳定可靠。</li>
+  <li>权限管理：服务实例的归属关联明确的系统标示（系统码+模块码），负责人和owner明确。权限管控不独立维护，依赖tardis统一管理。</li>
+  <li>服务监控：分为调用方视角和服务方视角。调用端收集实际发生的调用log并做收集、分析、呈现。服务方度量提供的服务的实际情况、收集jvm的基本情况，并近实时呈现到web控制台。</li>
+  <li>测试支撑：mock测试桩维护，自动化测试过程。从根本上解决测试环节中环境繁杂，数据维护效率低下等问题。为持续集成提供可能性。</li>
+  <li>扩展：框架通过动态代理、抽象封装对研发屏蔽了服务监听、序列化/反序列化、协议等技术细节。当然如果需要，研发人员可以通过配置甚至开发扩展来DIY。</li>
+</ul><h3>功能详述</h3><h4>服务开发流程</h4><p>需求确认之后，涉及的各研发团队讨论接口定义，并将最终的接口定义按照IDL给出。框架提供工具将IDL直接转为java等语言的code，使用框架提供的IDL管理工具可以直接生成jar并可以直接push到maven仓库，给出maven坐标。开发阶段使用snapshot，可以多次修改，进入联试阶段则需要使用public版本，public版本必须向前兼容。通过这个流程的管理，研发不需要再多余的维护word、wiki这样的接口文档，以IDL为准，避免文档的维护成本。同时，使用maven来管理版本，可以追溯历史版本。</p><h4>服务治理</h4><p>服务框架提供丰富的服务治理手段，研发可以通过配置和web-console来干预。调用方client具备熔断，负载均衡，路由等功能。提供方具备限流、鉴权、屏蔽调用方、权重等功能。<br/>具体意义：<br/>熔断：调用方根据实际调用结果度量，出错几次或相应时间超过阈值几次，本地禁用该链路一段时间，尝试可用后再加入负载。<br/>快速失败：针对一些服务不再发生实际调用，直接返回自行定义的数据或者异常。<br/>限流：限制提供方的并发上限，可以按照接口维度、调用方维度分配。<br/>度量：服务调用的流量、速率、响应时延。</p><h4>服务监控</h4><p>提供各个维度的监控信息，实际的数据来源：既成事实的调用log（从调用方收集），提供方服务度量log（从提供方收集）。<br/>最终提供出折线图和饼图：流量图、时延图、失败率图、异常分布饼图、调用系统分布饼图等。 </p><h4>测试过程</h4><p>目前测试环境最大的问题就是联试环境和联试数据的维护。上下游系统测试环境数据的构造往往占据了测试过程巨大多数时间。框架提供服务框架内的mock装维护功能，测试人员可以在系统上维护个个服务接口的mock装数据，并可以设置一定的回放规则。通过这个环境目标从根本上解决掉自测环节数据依赖的问题，为持续集成提供可能。</p><h3>设计</h3><h4>逻辑架构</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-arc.jpg?api=v2"  alt="逻辑架构"/></p><h4>逻辑分层</h4><p> <img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-framwork.jpg?api=v2"  alt="逻辑分层"/></p><h4>暴露服务时序</h4><p> <img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-provider-start.png?api=v2"  alt="暴露服务时序"/></p><h4>引用服务时序</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-reference-get.png?api=v2"  alt="引用服务时序"/></p><h4>客服端调用时序</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-invoke.png?api=v2"  alt="客户端调用时序"/><br/> </p><h4>服务端响应时序</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/provider-invoke-chain.png?api=v2"  alt="服务端响应时序"/></p><h4>实现分层和扩展</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-layer.jpg?api=v2"  alt="实现分层和扩展"/></p><h4>异常发生和处理分层</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/pebble-exception-handle.png?api=v2"  alt="异常发生和处理分层"/><br/> <img src="http://wiki.tuniu.org/download/attachments/71350192/invoker-exception-handle.png?api=v2"  alt="invoker异常处理抽象"/><br/> <img src="http://wiki.tuniu.org/download/attachments/71350192/client-exception-handle.png?api=v2"  alt="invoker异常处理抽象"/><br/> </p><h4>服务治理功能规划</h4>
+<table>
+  <thead>
+    <tr>
+      <th>归属</th>
+      <th>功能</th>
+      <th>说明</th>
+      <th>可选</th>
+      <th>何处生效</th>
+      <th>何处控制</th>
+      <th>版本</th>
+      <th>计划</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>服务</td>
+      <td>禁用/允许</td>
+      <td>调用方抛出服务不可用异常</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务</td>
+      <td>实例warm up</td>
+      <td>提供方实例启动后多长时间后才变为正常权重</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failfast</td>
+      <td>调用失败直接抛出异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failover</td>
+      <td>调用失败可以重试，重试次数，重试间隔0</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failsafe</td>
+      <td>调用忽略异常，不抛出异常，如果有异常返回的结果为null</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>broadcast</td>
+      <td>向所有服务提供者广播请求</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>failover plus</td>
+      <td>重试时间增长</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-集群调用方式</td>
+      <td>map reduce</td>
+      <td>将请求的参数分解，分别分发给不同提供者，再将结果合并</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>白名单</td>
+      <td>白名单优先，配置白名单IP正则</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>黑名单</td>
+      <td>黑名单内的提供者直接排除</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>路由ip正则</td>
+      <td>场景比如：在线A/B</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-路由规则</td>
+      <td>tag</td>
+      <td>消费方根据实例自身的tag找到具备相同tag的提供方</td>
+      <td>多选</td>
+      <td>调用方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>随机</td>
+      <td>按照权重随机选取</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>轮询</td>
+      <td>按照权重轮询选取</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>最小调用</td>
+      <td>根据调用方实际调用metrics信息来选取count最小的调用</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>最小时间</td>
+      <td>根据调用方实际调用metrics信息来选取时延最小的调用</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>粘滞</td>
+      <td>首次随机，接下来的请求会都分发到首次的提供方</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>hash</td>
+      <td>一致性hash、客户端可扩展</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-负载均衡</td>
+      <td>机器状态</td>
+      <td>根据提供者所在机器状态来选取合适</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>服务-限流</td>
+      <td>work线程池</td>
+      <td>根据iface可以拆可以合并；最大并发设置；</td>
+      <td>多选</td>
+      <td>提供方</td>
+      <td>client</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务-限流</td>
+      <td>并发分配</td>
+      <td>根据调用者系统按照比率分配并发，超过则拒绝，返回异常；</td>
+      <td>多选</td>
+      <td>提供方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务提供者实例</td>
+      <td>禁用/允许</td>
+      <td>调用方过滤，如果都禁用则抛出无可用提供者异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务提供者实例</td>
+      <td>权重倍权/半权</td>
+      <td>默认提供方权重是16，</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <td>服务消费者实例</td>
+      <td>禁用/允许</td>
+      <td>调用方抛出消费者被禁用异常</td>
+      <td>单选</td>
+      <td>调用方</td>
+      <td>web-console</td>
+      <td>1.0.0</td>
+      <td>6.30</td>
+    </tr>
+  </tbody>
+</table><p> </p><h4>zk节点设计</h4><p><img src="http://wiki.tuniu.org/download/attachments/71350192/Pebble-zk-Root.jpg?api=v2"  alt="服务之列zk节点设计"/></p><h5>客户端watcher</h5>
+<ol>
+  <li>服务提供者pool子节点变化</li>
+  <li>服务提供配置common节点data变化</li>
+  <li>服务提供者实例配置节点data变化</li>
+  <li>服务提供路由规则节点data变化</li>
+  <li>服务提供限流规则节点data变化</li>
+  <li>服务消费者自己的节点data变化<br/> </li>
+</ol><h5>服务配置生效规则</h5>
+<table>
+  <thead>
+    <tr>
+      <th>归属</th>
+      <th>功能</th>
+      <th>何处生效</th>
+      <th>覆盖关系</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>common</td>
+      <td>禁用/允许</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>实例warm up</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>60秒</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>cluster</td>
+      <td>调用方</td>
+      <td>客户端设置 &gt; 服务端治理</td>
+      <td>failfast</td>
+    </tr>
+    <tr>
+      <td>common</td>
+      <td>loadbalance</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>random</td>
+    </tr>
+    <tr>
+      <td>router</td>
+      <td>routeConfig</td>
+      <td>调用方</td>
+      <td>客户端治理 &gt; 客户端设置 &gt; 服务端治理</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>rateLimit</td>
+      <td>throttler</td>
+      <td>提供方</td>
+      <td>服务端治理</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>provider enable</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>权重倍权/半权</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>consumer enable</td>
+      <td>调用方</td>
+      <td>服务端治理</td>
+      <td>enable=true</td>
+    </tr>
+    <tr>
+      <td>instance</td>
+      <td>timeout</td>
+      <td>调用方</td>
+      <td>客户端设置</td>
+      <td>2秒</td>
+    </tr>
+  </tbody>
+</table><p> </p><h5>这样设计的优势</h5>
+<ol>
+  <li>客户端的watcher数目不会随着服务提供者变化而增加</li>
+  <li>zk集群整体的watcher的个数为：按照Iface求和{每个iface下服务消费者数*6}</li>
+  <li>每个节点的数据量小，再加上一些硬性控制可以保证zk集群的稳定性</li>
+</ol><h4>监控</h4>
+<ul>
+  <li>服务框架会收集消费方调用log，收集后的log提供短期查询（暂定3天）和长期压缩归档。提供分析服务对数据进行近实时的分析，并提供告警和报告等功能；</li>
+  <li>服务方access log提供本地落盘功能；</li>
+  <li>服务提供方metrics上报到falcon agent，默认关闭，可自行开关；</li>
+</ul><h5>消费方调用log收集</h5><p><img src="http://wiki.tuniu.org/download/attachments/71350192/Pebble-Consumer-log.jpg?api=v2"  alt="消费方调用log收集设计"/><br/>图中红色部分为Pebble框架开发的部分，蓝色为组件依赖；<br/>log service provider 提供一个收集log的pebble服务，该服务内部将消息写入MQ中间件。序列化先采用thirft，后续可以优化为其他压缩比高的序列化方式。<br/>消费者pebble客户端中先在有界内存队列缓存调用log，由消费线程调用log收集服务来推送到远端。</p><h4>启停graceful设计</h4>
+<ul>
+  <li>使用spring作为容器，继承ApplicationListener实现onApplicationEvent方法：</li>
+</ul>
+<ol>
+  <li>ContextRefreshedEvent：初始化服务提供者(初始化本地提供者配置&ndash;&gt;本地暴露服务&ndash;&gt;注册)；</li>
+  <li>ContextClosedEvent：注销消费引用，停止暴露服务(注销服务注册&ndash;&gt;等待worker线程处理完毕&ndash;&gt;关闭服务端口暴露)</li>
+</ol>
+<ul>
+  <li><p>不使用spring容器，需要手动调用startup，内部执行流程同上；startup中还会通过addShutdownHook添加回调操作，当jvm收到退出信号则会调用该回调，去做注销的事情，内部执行同上；</p>
+  <blockquote>注意：强烈要求运维停止jvm时使用SIGTERM 15信号(kill命令默认信号)，而不是暴力的SIGKILL 9；尝试多次15后，仍不能停止再使用9(tomcat容器，建议使用它自带的shutdown脚本)。如果直接kill -9则zk上的节点消除需要等一个zk服务端配置的client心跳的超时，导致这个时段内的调用会有refuse异常。
+  </blockquote></li>
+</ul><h3>写在最后</h3><h4>为什么已经有了TSP,还需要做pebble服务？</h4>
+<ol>
+  <li>TSP并没有做服务端流量的入口，依附spring框架的mapping和web容器的服务能力，做深层次的治理难度大；</li>
+  <li>TSP没有做rpc，不能深入管理接口的定义，序列化和协议没法更改；</li>
+  <li>TSP服务落在方法上，服务总数是爆炸的，并且不能指导业务的抽象；</li>
+  <li>TSP设计时并没有考虑到测试的部分，导致自动化集成难度大；</li>
+  <li>TSP的异常设计欠缺，log不完善，为定位问题提供的帮助有限；</li>
+  <li>TSP的扩展性欠缺；</li>
+</ol><h4>为什么有了dubbo，还需要做pebble服务？</h4>
+<ol>
+  <li>dubbo整体偏重，抽象的太细，而目前途牛内部关心到potocol层已经满足需求；</li>
+  <li>dubbo目前没有支撑原生的thrift，我们设计倾向对接原生协议，这样框架可以对接更多支持原生的其他框架，节省开发时间，比如监控，比如APM；</li>
+  <li>希望从设计到实现都把握在途牛自有团队手中，方便问题调查和维护,dubbo早就停止维护，dubboX代码很不堪，更新极少；</li>
+  <li>治理和管理上希望更切合途牛系统现状；</li>
+</ol><h4>分享ppt下载<a href="http://wiki.tuniu.org/download/attachments/71350192/Pebble%E5%88%86%E4%BA%AB-v3.pptx?api=v2">点击下载</a></h4>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/71350192"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="71350192" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right  has-pen">
+            <li class="no-labels-message">
+            无标签
+        </li>
+                <li class="labels-edit-container">
+            <a href="#" class="show-labels-editor editor-icon" title="编辑标签">
+                <span class="icon icon-edit">编辑标签</span>
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</div></div>
+
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+            <div class="section-header ">
+            <h2 id="comments-section-title" class="section-title">
+                <a href="#" class="comments-show-hide comments-showing" name="comments">
+                                            评论
+                                    </a>
+            </h2>
+            <a title="隐藏/显示评论" href="#"
+               class="comments-show-hide icon comments-showing icon-section-opened">
+                隐藏/显示评论
+            </a>
+        </div>
+    
+    
+    
+                            <ol class="comment-threads top-level " id="page-comments">
+                        <li id="comment-thread-81043918" class="comment-thread">
+                                <div class="comment  " id="comment-81043918">
+                <p class="comment-user-logo">
+                    <a  class="userLogoLink" data-username="huyinmiao" href="    /display/~huyinmiao
+">
+               <img class="userLogo logo" src="/images/icons/profilepics/default.png"
+               alt="用户图标: huyinmiao" title="huyinmiao">
+           </a>                </p>
+                <div class="comment-header">
+                    <h4 class="author"><a href="    /display/~huyinmiao
+"
+                          class="url fn confluence-userlink" data-username="huyinmiao"
+                   >胡银苗 huyinmiao (99999)</a> 发表：</h4>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>是不是写错了B<span style="background-color: transparent;">rodcastClusterInvoker？B<span>roadcastClusterInvoker</span></span></p>
+                    </div>
+                    <div class="comment-actions">
+                                                      <ul class="comment-actions-secondary">
+                                                                      <li class="first comment-permalink"><a title="指向此评论的永久链接" href="/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+                id="comment-permalink-81043918"                ><span>永久链接</span></a></li>
+            </ul>
+                                <ul class="comment-actions-primary">
+                                                                      <li class="first action-reply-comment"><a  href="/pages/replycomment.action?commentId=81043918&amp;pageId=71350192"
+                id="reply-comment-81043918"                ><span>回复</span></a></li>
+                                                                      <li class=" comment-date"><a title="2017-11-28 19:12" href="/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+                              ><span>2017-11-28</span></a></li>
+            </ul>
+                      </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81043918#comment-81043918"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/81043918"/>
+</rdf:RDF>
+-->
+
+                    
+                                    <ol class="comment-threads">
+                                        <li id="comment-thread-81044255" class="comment-thread">
+                                <div class="comment  " id="comment-81044255">
+                <p class="comment-user-logo">
+                    <a  class="userLogoLink" data-username="liurui" href="    /display/~liurui
+">
+               <img class="userLogo logo" src="/images/icons/profilepics/Avatar-24.png"
+               alt="用户图标: liurui" title="liurui">
+           </a>                </p>
+                <div class="comment-header">
+                    <h4 class="author"><a href="    /display/~liurui
+"
+                          class="url fn confluence-userlink" data-username="liurui"
+                   >刘锐 liurui (61549)</a> 发表：</h4>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>thx,已经修复</p>
+                    </div>
+                    <div class="comment-actions">
+                                                      <ul class="comment-actions-secondary">
+                                                                      <li class="first comment-permalink"><a title="指向此评论的永久链接" href="/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+                id="comment-permalink-81044255"                ><span>永久链接</span></a></li>
+            </ul>
+                                <ul class="comment-actions-primary">
+                                                                      <li class="first action-reply-comment"><a  href="/pages/replycomment.action?commentId=81044255&amp;pageId=71350192"
+                id="reply-comment-81044255"                ><span>回复</span></a></li>
+                                                                      <li class=" comment-date"><a title="2017-11-29 10:58" href="/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+                              ><span>2017-11-29</span></a></li>
+            </ul>
+                      </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+    dc:identifier="http://wiki.tuniu.org/pages/viewpage.action?pageId=71350192&amp;focusedCommentId=81044255#comment-81044255"
+    dc:title="Pebble服务框架"
+    trackback:ping="http://wiki.tuniu.org/rpc/trackback/81044255"/>
+</rdf:RDF>
+-->
+
+                    
+                                </li>
+                                </ol>
+                        </li>
+                </ol>
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink" data-username="caiqingqing" href="/users/editmyprofilepicture.action" title="添加头像"><img class="userLogo logo defaultLogo" src="/s/zh_CN-1988229788/4215/27aa6aff3fb0e9e5138a84da80ecdaa533a08846.1/_/images/icons/profilepics/add_profile_pic.png" alt="用户图标: 添加头像"></a></p><div class="quick-comment-vertical-spacer"></div><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"><p class="quick-comment-loading-message">正加载编辑器</p></div><div id="editor-messages"></div><div id="all-messages"></div><form style="display:block;" class="quick-comment-form aui" method="post" name="inlinecommentform" action="/pages/doaddcomment.action?pageId=71350192" ><div title="添加评论" class="quick-comment-prompt"><span>写评论…</span></div></form></div></div>
+
+    
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="/pages/viewpage.action?pageId=71350192&showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger full-load">添加评论</a></span>
+                </p>
+            </div>
+            </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+
+        
+            <div id="footer">
+
+    <section class="footer-body">
+
+                        
+    
+
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.1</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">团队协作软件</a></li>
+        <li class="print-only">由团队协作软件 Atlassian Confluence 5.1打印。</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">报告缺陷</a></li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian 新闻</a></li>
+    </ul>
+
+    
+
+            
+    
+    </section>
+
+</div>
+
+    </div>
+</body>
+</html>
